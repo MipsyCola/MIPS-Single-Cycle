@@ -5,7 +5,7 @@ output reg[1:0] ALU_Op;
 input [5:0] Inst_31_26;
 input reset;
 
-always
+always@(Inst_31_26,reset)
 begin
 
 	if(reset == 1'b1) 
@@ -100,4 +100,17 @@ begin
 
 end
 
+endmodule
+
+module control_bn();
+wire Reg_Dst,Branch,Mem_Read,Mem_to_Reg,Mem_Write,ALU_Src,Reg_Write;
+wire[1:0] Alu_OP;
+reg[5:0] op_code;
+Control jimmmy (Reg_Dst, Branch, Mem_Read, Mem_to_Reg, Alu_OP, Mem_Write, ALU_Src, Reg_Write, op_code, 1'b0);
+initial
+begin
+$monitor("Reg_Dst:%b ,Branch:%b ,Mem_Read:%b ,Mem_to_Reg:%b ,Mem_Write:%b ,ALU_Src:%b ,Reg_Write:%b ,Alu_OP:%b ",Reg_Dst,Branch,Mem_Read,Mem_to_Reg,Mem_Write,ALU_Src,Reg_Write,Alu_OP);
+#5
+op_code = 6'b000000;
+end
 endmodule
