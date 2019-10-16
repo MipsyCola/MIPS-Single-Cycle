@@ -13,21 +13,3 @@ Sign_Ext_Output =0'bx;
 end
 
 endmodule
-
-module tb_sign();
-
-reg[15:0] inst;
-wire[31:0] ext;
-Sign_Extend proto(ext,inst);
-initial
-begin
-$monitor("inst: %h, sign: %h",inst,ext);
-
-inst <= 16'hff22;
-
-#5
-
-inst <= 16'h0022;
-end
-
-endmodule

@@ -4,7 +4,7 @@ output reg[27:0] Shifted_Output;
 
 always @(Inst_25_0)
 begin
-Shifted_Output = (Inst_25_0 << 2);
+Shifted_Output <= (Inst_25_0 << 2);
 end
 
 endmodule
