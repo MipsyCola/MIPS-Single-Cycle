@@ -109,3 +109,4 @@ PC p_c(output_PC,input_PC);		  // input_PC = output_PC = PC+4
 plus_f_adder  adder(outpfour , output_PC,clk);// output of adder = inputPC , input_adder = output PC
 
 endmodule
+//𝓔𝓞𝓕
