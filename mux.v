@@ -1,4 +1,4 @@
-module MUX_RegDst(instruction_20_16,instruction_15_11,Write_Register,RegDst);
+module MUX_5(instruction_20_16,instruction_15_11,Write_Register,RegDst);
 
 input  wire [4:0] instruction_20_16;
 input  wire [4:0] instruction_15_11;
@@ -22,6 +22,7 @@ begin
 	$display ("RegDst: %b",RegDst);
 	end
 end
+
 
 endmodule
 
@@ -73,7 +74,7 @@ ins_15_11 = 5'b00000;
 
 end
 
-MUX_RegDst Mostafa_Ray2(ins_20_16,ins_15_11,Write_register,Regdst);
+MUX_5 Mostafa_Ray2(ins_20_16,ins_15_11,Write_register,Regdst);
 
 
 endmodule
