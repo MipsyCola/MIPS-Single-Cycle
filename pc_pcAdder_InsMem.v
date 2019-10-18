@@ -1,73 +1,111 @@
-module plus_f_adder(pcPlus,pc,clk);
-input wire [12:0] pc;
-output reg[12:0] pcPlus;
+/*
+* File : instructionMemory.v
+* Name : Eslam Ahmed & Amr Elsersy 
+* Course : CO2
+* Data : 10/18/2019
+* Contents : Modules for instruction memory, PC register and +4Adder all working with positive edge clock  
+* Description : Fetching the instruction from memory 
+		PC register holds the address of the current instruction
+		Instruction memory stores all the instrictions (max 8192 instruction = 32KB ,each instruction = 32bit = 4Bytes = 1word)  
+		Plus_f_adder increase the PC addres by 1 (word) to point at the next instruction  
+* 
+*/
+
+
+/***************tt************************************************************************************
+* Module : plus_f_adder (PCplus , pc,clk)
+* Parameters : 
+*	output: 1
+*		PCplus: new instruction address
+*	inputs: 2
+*		clk : the master clock of all modules 
+*		pc : a 13 bit register holds the address of the instruction to be outputed
+* Discription :  increase the PC addres by 1 (word) to point at the next instruction  
+***************************************************************************************************/
+
+module plus_f_adder (PCplus , pc,clk);
+output reg[12:0] PCplus;
 input wire clk;
-always@(posedge clk) begin
-pcPlus = pc +1; 
-$display ("PC=%d,pcPlus=%d",pc,pcPlus);
-end
-endmodule
+input wire[12:0] pc;
+always @(posedge clk) PCplus <= pc +1;
+endmodule 
 
-module Instruction_memory(instruction,clk,pc);
-output reg[31:0] instruction;
-input [12:0] pc;
-input clk;
-reg[31:0] Imem[0:8191];
+/***************tt************************************************************************************
+* Module : PC( output1, input_pc)
+* Parameters : 
+*	output: 1
+*		output1: PC
+*	inputs: 1
+*		input_pc : PC
+* Discription :  A register that holds the pc
+***************************************************************************************************/
 
-integer fileMem;
-initial 
-begin
-#1
-fileMem=$fopen("F:\eslam.list","r");
-#1
-$readmemh(fileMem,Imem);
-#1
-$display(" %b",Imem[0]);
-#1
-$fclose(fileMem);
-/*Imem[0]=13'b0;
-Imem[1]=13'b0000_0000_0000_1;
-Imem[2]=13'b0000_0000_0001_0;*/
-
-end
-always @(posedge clk )
-begin 
-instruction <= Imem[pc]; 
-$display ("instruction: %d",Imem[pc]);
-end
-endmodule
-
-module PC(input_pc , output1);
+module PC( output1, input_pc);
 input wire[12:0] input_pc;
 output reg[12:0] output1;
 always@(input_pc)
 begin output1 <= input_pc; end
 endmodule
 
+
+
+/***************tt************************************************************************************
+* Module : Instruction_memory(instruction,clk,pc)
+* Parameters : 
+*	output: 1
+*		instruction: a 32 register holds the instruction machine code
+*	inputs: 2
+*		clk : the master clock of all modules 
+*		pc : a 13 bit register holds the adress of the instruction to be outputed
+* Discription :  outputs the instruction at the index PC 
+***************************************************************************************************/
+
+module Instruction_memory(instruction,clk,pc);
+output reg[31:0] instruction;
+input [12:0] pc;
+input clk;
+reg[31:0] Imem[0:8191]; // 32KB memory ehich is 8192 register each one is 32bit 
+reg[31:0] i;
+integer file;
+initial $readmemb("ins.txt",Imem);
+
+always @(posedge clk )
+begin 
+instruction <= Imem[pc]; 
+//$display ("instruction: %d",Imem[pc]);
+end
+endmodule
+
+
+/***************tt************************************************************************************
+* Module : tb_initialize_Imem()
+* Parameters : N/A
+* Discription : Just for the sake of testing 
+***************************************************************************************************/
+
 module tb_initialize_Imem();
 wire[31:0] inst;
 reg clk;
-reg [12:0] input_PC;
+reg [12:0] input_PC; 
 wire[12:0] output_PC;
 wire[12:0] outpfour;
 initial 
 begin 
 //$monitor("%b ",inst);
 #1
-input_PC = 0;
+input_PC = 0; // intialize PC  at the first ins.
 clk=0;
 end
 
-always begin  #5 clk= ~clk; end
+always begin  #5 clk= ~clk; end //clock
 
 always @(outpfour)
 begin 
-input_PC <= outpfour;
+input_PC <= outpfour;  // pc = pc+4 --> assgin the output of the adder to the pc 
 end
 
 Instruction_memory x(inst,clk,output_PC); // inst => output of instruction memory , output_PC = Read_Address 
-PC p_c(input_PC,output_PC);		  // input_PC = output_PC = PC+4 
+PC p_c(output_PC,input_PC);		  // input_PC = output_PC = PC+4 
 plus_f_adder  adder(outpfour , output_PC,clk);// output of adder = inputPC , input_adder = output PC
-
 
 endmodule
