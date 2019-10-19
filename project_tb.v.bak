@@ -663,7 +663,7 @@ MUX_32_1 aluIN_mux(Read_Data_2, Sign_Ext_Output, Alu_Src_Output, ALU_Src);
 
 wire[3:0] ALUctrl; 
 wire JR_Signal;
-ALU_Control aluCtrl(ALUctrl, ALU_Op, instruction[5:0], JR_Signal);
+ALU_Control aluCtrl(ALUctrl, Alu_OP, instruction[5:0], JR_Signal);
 
 wire[31:0] Alu_Result;
 wire Zero;

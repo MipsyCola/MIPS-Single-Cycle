@@ -1,6 +1,6 @@
 module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Write,ALU_Src,Reg_Write,Inst_31_26,Jump,reset);
 
-	output reg  Branch,Branch_Not_Equal,Mem_Read,Mem_Write,ALU_Src,Reg_Write,Jump;
+	output reg  Branch,Branch_Not_Equal,Mem_Read,Mem_Write,ALU_Src,Reg_Write,Jump,JR;
 	output reg  [1:0] Mem_to_Reg,Reg_Dst;
 	output reg  [2:0] ALU_Op;
 	input  wire [5:0] Inst_31_26;

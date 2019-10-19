@@ -4,7 +4,7 @@ input  wire [4:0] in0,in1,ra;
 output reg  [4:0] Write_Register;
 input wire [1:0]RegDst;
 
-always@(in0,in1,RegDst)
+always@(instruction_20_16,instruction_15_11,RegDst)
 begin 
 	if(RegDst == 0)
 	begin

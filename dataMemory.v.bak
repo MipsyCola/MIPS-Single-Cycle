@@ -6,8 +6,8 @@ output reg[31:0] Read_Data;// reg wait for change value
 input wire clock;
 input MemWrite,MemRead;
 input [31:0] Address,Write_data;
-reg[31:0] Address_lines[0:dataSize];
-reg[31:0] write_data_storage[0:dataSize];// 2048 or 8192 
+reg[31:0]	Address_lines[0:dataSize];
+reg[31:0]	write_data_storage[0:dataSize];// 2048 or 8192 
 
 always @ (posedge clock)
 begin

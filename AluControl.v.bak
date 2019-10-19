@@ -46,10 +46,11 @@ module ALU_Control(Alu_Signal, Alu_OP, Inst_5_0,JR_Signal);
 			if(Inst_5_0==6'b001000)
 			begin
 				JR_Signal <= 1'b1;
+				#1
+				JR_Signal <= 1'b0;
 			end
 			else
 			begin
-			JR_Signal <= 1'b0;
 			case (Inst_5_0)
 				6'b100000:Alu_Signal <= 4'b0010;  //add
 				6'b100010:Alu_Signal <= 4'b0110;  //subtract

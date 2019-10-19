@@ -1,66 +1,67 @@
-module plus_f_adder (PCplus , pc,clk);
-output reg[31:0] PCplus;
-input wire clk;
-input wire[31:0] pc;
-integer file ;
-always @(posedge clk) 
-begin 
-	PCplus <= pc +1;
-end
-endmodule
 
-module PC( output1, input_pc);
-input wire[31:0] input_pc;
-output reg[31:0] output1;
-integer file ,size , _ ;
-initial 
-begin
-// ========================= for Size Calculation ============================
-size = 0;
-file = $fopen("ins.txt","r");
-while (! $feof (file) )
+module RegFile(Read_Data_1, Read_Data_2, Read_Reg_1, Read_Reg_2, Write_Reg, Write_Data, Reg_Write, Clock);
+	
+	output reg[31:0] Read_Data_1, Read_Data_2;
+
+	input wire[4:0] Read_Reg_1, Read_Reg_2, Write_Reg;
+	input wire[31:0] Write_Data;
+	input wire Reg_Write, Clock;
+	
+	reg [31:0] Reg_File[0:31];
+	
+
+	initial 
 	begin
-	_ = $fscanf (file,"%b",_);
-	size = size +1;
+		Reg_File[0]  <= 32'h00000000; //zero register
+		Reg_File[1]  <= 32'h00000000;
+		Reg_File[2]  <= 32'h00000000;
+		Reg_File[3]  <= 32'h00000000;
+		Reg_File[4]  <= 32'h00000000;
+		Reg_File[5]  <= 32'h00000000;
+		Reg_File[6]  <= 32'h00000000;
+		Reg_File[7]  <= 32'h00000000;
+		Reg_File[8]  <= 32'h00000000;
+		Reg_File[9]  <= 32'h00000000;
+		Reg_File[10] <= 32'h00000000;
+		Reg_File[11] <= 32'h00000000;
+		Reg_File[12] <= 32'h00000000;
+		Reg_File[13] <= 32'h00000000;
+		Reg_File[14] <= 32'h00000000;
+		Reg_File[15] <= 32'h00000000;
+		Reg_File[16] <= 32'h00000000;
+		Reg_File[17] <= 32'h00000002;
+		Reg_File[18] <= 32'h00000001;
+		Reg_File[19] <= 32'h00000000;
+		Reg_File[29] <= 32'h00000000; //change this address to stack pointer 
 	end
-$display ("SIZE === %d ",size);
-// ============================================================================
-end
 
-always@(input_pc)
-begin 
-output1 <= input_pc; 
-if(input_pc >= size )
+	always @(posedge Clock)
 	begin
-	$stop();
+		if(Reg_Write)
+			Reg_File[Write_Reg] <= Write_Data;
 	end
-end
-endmodule
-module Instruction_memory(instruction,clk,pc);
-output reg[31:0] instruction;
-input [31:0] pc;
-input clk;
-reg[31:0] Imem[0:8191]; // 32KB memory ehich is 8192 register each one is 32bit 
-reg[31:0] i;
-integer file;
-integer _ ;
-integer size;
 
-initial 
-begin 
-$readmemb("ins.txt",Imem);
-
-end
-
-always @(posedge clk )
-begin 
-	instruction <= Imem[pc]; 
-end
+	always @(negedge Clock)
+	begin
+		Read_Data_1 <= Reg_File[Read_Reg_1];
+		Read_Data_2 <= Reg_File[Read_Reg_2];
+	end
 
 endmodule
-module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Write,ALU_Src,Reg_Write,Inst_31_26,Jump,reset);
 
-	output reg  Branch,Branch_Not_Equal,Mem_Read,Mem_Write,ALU_Src,Reg_Write,Jump;
+
+
+
+
+
+
+
+
+
+
+module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Write,ALU_Src,Reg_Write,Inst_31_26,Jump,JR,reset);
+
+	output reg  Branch,Branch_Not_Equal,Mem_Read,Mem_Write,ALU_Src,Reg_Write,Jump,JR;
 	output reg  [1:0] Mem_to_Reg,Reg_Dst;
 	output reg  [2:0] ALU_Op;
 	input  wire [5:0] Inst_31_26;
@@ -74,12 +75,13 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 			Branch<=1'b0;
 			Branch_Not_Equal<=1'b0;
 			Jump<=1'b0;
+			 
 			Mem_Read<=1'b0;
 			Mem_to_Reg<=2'b00;
 			Mem_Write<=1'b0;
 			ALU_Src<=1'b0;
 			Reg_Write<=1'b0;
-			ALU_Op<=3'b000;
+			ALU_Op<=2'b0;
 
 		end
 		else
@@ -92,6 +94,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
 					Jump<=1'b0;
+					 
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'b00;
 					Mem_Write<=1'b0;
@@ -106,6 +109,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
 					Jump<=1'b0;
+					 
 					Mem_Read<=1'b1;
 					Mem_to_Reg<=2'b01;
 					Mem_Write<=1'b0;
@@ -119,6 +123,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
 					Jump<=1'b0;
+					 
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'bxx;
 					Mem_Write<=1'b1;
@@ -129,9 +134,11 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 				6'd8: 	//addi
 				begin
 					Reg_Dst<=2'b00;
+				
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
 					Jump<=1'b0;
+					 
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'b00;
 					Mem_Write<=1'b0;
@@ -145,6 +152,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
 					Jump<=1'b0;
+					 
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'b00;
 					Mem_Write<=1'b0;
@@ -158,6 +166,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
 					Jump<=1'b0;
+					 
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'b00;
 					Mem_Write<=1'b0;
@@ -170,6 +179,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Reg_Dst<=2'b00;
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
+					 
 					Jump<=1'b0;
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'b00;
@@ -184,6 +194,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
 					Jump<=1'b0;
+					 
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'b00;
 					Mem_Write<=1'b0;
@@ -197,6 +208,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b1;
 					Jump<=1'b0;
+					 
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'b00;
 					Mem_Write<=1'b0;
@@ -210,6 +222,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
 					Jump<=1'b1;
+					 
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'bxx;
 					Mem_Write<=1'b0;
@@ -222,6 +235,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Reg_Dst<=2'b10;
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
+					 
 					Jump<=1'b1;
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'b10;
@@ -235,6 +249,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Reg_Dst<=2'b00;
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
+					 
 					Jump<=1'b0;
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'b00;
@@ -243,12 +258,13 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Reg_Write<=1'b1;
 					ALU_Op<=3'b111;
 				end	
-				6'd32:	//lb
+	/*			6'd32:	//lb
 				begin
 					Reg_Dst<=2'b00;
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
 					Jump<=1'b0;
+					 
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'b00;
 					Mem_Write<=1'b0;
@@ -262,6 +278,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
 					Jump<=1'b0;
+					 
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'b00;
 					Mem_Write<=1'b0;
@@ -275,6 +292,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
 					Jump<=1'b0;
+					 
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'b00;
 					Mem_Write<=1'b0;
@@ -288,169 +306,24 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Branch<=1'b0;
 					Branch_Not_Equal<=1'b0;
 					Jump<=1'b0;
+					 
 					Mem_Read<=1'b0;
 					Mem_to_Reg<=2'b00;
 					Mem_Write<=1'b0;
 					ALU_Src<=1'b1;
 					Reg_Write<=1'b1;
 					ALU_Op<=3'b111;
-				end			
+				end
+					*/	
+				//default:			
 		endcase
 	end
 end
 endmodule
-module RegFile(Read_Data_1, Read_Data_2, Read_Reg_1, Read_Reg_2, Write_Reg, Write_Data, Reg_Write, Clock);
 
-input wire[4:0] Read_Reg_1, Read_Reg_2, Write_Reg;
-input wire[31:0] Write_Data;
-input Reg_Write, Clock;
-output reg[31:0] Read_Data_1, Read_Data_2;
 
-reg[31:0] Reg_File[0:31];
 
-initial
-begin
-Reg_File[0] <= 32'h00000000; //zero register
-Reg_File[1] <= 32'h00000000;
-Reg_File[2] <= 32'h00000000;
-Reg_File[3] <= 32'h00000000;
-Reg_File[4] <= 32'h00000000;
-Reg_File[5] <= 32'h00000000;
-Reg_File[6] <= 32'h00000000;
-Reg_File[7] <= 32'h00000000;
-Reg_File[8] <= 32'h00000000;
-Reg_File[9] <= 32'h00000000;
-Reg_File[10] <= 32'h00000000;
-Reg_File[11] <= 32'h00000000;
-Reg_File[12] <= 32'h00000000;
-Reg_File[13] <= 32'h00000000;
-Reg_File[14] <= 32'h00000000;
-Reg_File[15] <= 32'h00000000;
-Reg_File[16] <= 32'h00000000;
-Reg_File[17] <= 32'h00000002;
-Reg_File[18] <= 32'h00000001;
-Reg_File[19] <= 32'h00000000;
-Reg_File[29] <= 32'h00000000; //change this address to stack pointer 
-end
 
-always @(posedge Clock)
-begin
-if(Reg_Write)
-Reg_File[Write_Reg] <= Write_Data;
-$display ("Write_Data=%b",Write_Data);
-end
-
-always @(negedge Clock)
-begin
-Read_Data_1 <= Reg_File[Read_Reg_1];
-Read_Data_2 <= Reg_File[Read_Reg_2];
-$display ("Read_Reg_1=%b",Read_Reg_1);
-$display ("Read_Reg_2=%b",Read_Reg_2);
-end
-endmodule
-module Sign_Extend(Sign_Ext_Output, Inst_15_0);
-input wire[15:0] Inst_15_0;
-output reg[31:0] Sign_Ext_Output;
-
-always @(Inst_15_0)
-begin
-if(Inst_15_0[15] == 1)
-Sign_Ext_Output = Inst_15_0 | 32'hffff0000;
-else if (Inst_15_0[15] == 0)
-Sign_Ext_Output = Inst_15_0 | 32'h00000000;
-else
-Sign_Ext_Output =0'bx;
-end
-endmodule
-module MUX_5_2(in0,in1,ra,Write_Register,RegDst);
-
-input  wire [4:0] in0,in1,ra;
-output reg  [4:0] Write_Register;
-input wire [1:0]RegDst;
-
-always@(in0,in1,RegDst)
-begin 
-	if(RegDst == 0)
-	begin
-	Write_Register <= in0;
-	end
-
-	else if (RegDst == 1)
-	begin
-	Write_Register <= in1;
-	end
-
-	else if (RegDst == 2)
-	begin
-	Write_Register <= ra;
-	end
-
-	else 
-	begin
-	$display ("RegDst: %b",RegDst);
-	end
-end
-endmodule
-module MUX_32_1(input_0,input1,output_mux,selector);
-
-input  wire [31:0] input_0;
-input  wire [31:0] input1;
-output reg  [31:0] output_mux;
-input wire selector;
-
-always@(input_0,input1,selector)
-begin 
-	if(selector == 0)
-	begin
-	output_mux <= input_0;
-	end
-
-	else if (selector == 1)
-	begin
-	output_mux <= input1;
-	end
-
-	else 
-	begin
-	$display ("selector: %b",selector);
-	end
-end
-
-endmodule
-
-module MUX_32_2(input_0,input1,input2,output_mux,selector);
-
-input  wire [31:0] input_0;
-input  wire [31:0] input1;
-input  wire [31:0] input2;
-
-output reg  [31:0] output_mux;
-input wire[1:0] selector;
-
-always@(input_0,input1,selector)
-begin 
-	if(selector == 0)
-	begin
-	output_mux <= input_0;
-	end
-
-	else if (selector == 1)
-	begin
-	output_mux <= input1;
-	end
-	
-	else if (selector == 2)
-	begin
-	output_mux <= input2;
-	end
-
-	else 
-	begin
-	$display ("selector: %b",selector);
-	end
-end
-
-endmodule
 module ALU_Control(Alu_Signal, Alu_OP, Inst_5_0,JR_Signal);
 	output reg[3:0] Alu_Signal;	 // signal going to ALU can be modified to more bits when adding more instr 
 	output reg JR_Signal;
@@ -499,10 +372,11 @@ module ALU_Control(Alu_Signal, Alu_OP, Inst_5_0,JR_Signal);
 			if(Inst_5_0==6'b001000)
 			begin
 				JR_Signal <= 1'b1;
+				#10
+				JR_Signal <= 1'b0;
 			end
 			else
 			begin
-			JR_Signal <= 1'b0;
 			case (Inst_5_0)
 				6'b100000:Alu_Signal <= 4'b0010;  //add
 				6'b100010:Alu_Signal <= 4'b0110;  //subtract
@@ -514,17 +388,23 @@ module ALU_Control(Alu_Signal, Alu_OP, Inst_5_0,JR_Signal);
 				6'b000000:Alu_Signal <= 4'b0100;  //sll
 				6'b000010:Alu_Signal <= 4'b1000;  //srl
 				6'b000011:Alu_Signal <= 4'b1001;  //sra
+				//default:
 			endcase
 			end
 		end
 	end
 endmodule
+
+
+
+
+
 module ALU(Read_Data_1,Alu_Src_Output,ALUctrl,Alu_Result,Zero,Inst_10_6);
 
 	input  wire signed [31:0] Read_Data_1;
 	input  wire signed [31:0] Alu_Src_Output;
 	input  wire [3:0] ALUctrl;
-	input  wire [4:0] Inst_10_6;
+	input  wire [5:0] Inst_10_6;
 	output reg  signed [31:0] Alu_Result;
 	output reg  Zero;
 
@@ -565,134 +445,139 @@ module ALU(Read_Data_1,Alu_Src_Output,ALUctrl,Alu_Result,Zero,Inst_10_6);
 		endcase
 	end
 endmodule
-module Shift_Left_26(Shifted_Output, Inst_25_0);
-input wire[25:0] Inst_25_0;
-output reg[27:0] Shifted_Output;
 
-always @(Inst_25_0)
-begin
-Shifted_Output <= (Inst_25_0 << 2);
-end
 
-endmodule
-module Shift_Left_32(Shifted_Output, signextend);
-input wire[31:0] signextend;
-output reg[31:0] Shifted_Output;
-
-always @(signextend)
-begin
-Shifted_Output <= (signextend << 2);
-end
-
-endmodule
-module Data_Memory(Read_Data,MemWrite,MemRead,Address,Write_data,clock);
-
-localparam dataSize = 32;
-
-output reg[31:0] Read_Data;// reg wait for change value
-input wire clock;
-input MemWrite,MemRead;
-input [31:0] Address,Write_data;
-reg[31:0] Address_lines[0:dataSize];
-reg[31:0] write_data_storage[0:dataSize];// 2048 or 8192 
-
-always @ (posedge clock)
-begin
-if(MemWrite)
-    write_data_storage[Address] <= Write_data;
-if(MemRead)
- Read_Data <= write_data_storage[Address];
-end
-endmodule
 module Clock_Gen(Clock);
-output reg Clock;
-initial
-begin
-Clock=0;
-end
-always
-begin
-#31.25
-Clock=~(Clock);
-end
-endmodule
-
-module branch_adder(branchAdded, pc_and_4, sign_and_shift_out);
-output reg[31:0] branchAdded;
-input wire[31:0] pc_and_4, sign_and_shift_out;
-
-always @(pc_and_4, sign_and_shift_out)
-begin
-branchAdded <= pc_and_4 + sign_and_shift_out;
-end
+	output reg Clock;
+	initial
+	begin
+		Clock=0;
+	end
+	always
+	begin
+		#31.25
+		Clock=~(Clock);
+	end
 endmodule
 
 
-module final_tb();
 
+module Data_Memory(Read_Data,MemWrite,MemRead,Address,Write_data,clock);
+	output reg[31:0] Read_Data;// reg wait for change value
+	input wire clock;
+	input MemWrite,MemRead;
+	input [31:0] Address,Write_data;
+	reg[31:0] Address_lines[0:8191];
+	reg[31:0]write_data_storage[0:8191];// 2048 or 8192 
+	always @ (posedge clock)
+	begin
+		if(MemWrite)
+  		 	 write_data_storage[Address] <= Write_data;
+		if(MemRead)
+			 Read_Data <= write_data_storage[Address];
+	end
+endmodule 
+
+
+module PC(input_pc , output1);
+
+	input wire[12:0] input_pc;
+	output reg[12:0] output1;
+	always@(input_pc)
+	begin
+		output1 <= input_pc;
+	end
+endmodule
+
+
+
+
+
+module Instruction_memory(instruction,clk,pc);
+	output reg[31:0] instruction;
+	input [12:0] pc;
+	input clk;
+	reg[31:0] Imem[0:8191];
+	integer fileMem;
+	initial 
+	begin
+		#1
+		fileMem=$fopen("F:\eslam.list","r");
+		#1
+		$readmemh(fileMem,Imem);
+		#1
+		$display(" %b",Imem[0]);
+		#1
+		$fclose(fileMem);
+		/*Imem[0]=13'b0;
+		Imem[1]=13'b0000_0000_0000_1;
+		Imem[2]=13'b0000_0000_0001_0;*/
+
+	end
+	always @(posedge clk )
+	begin 
+		instruction <= Imem[pc]; 
+		$display ("instruction: %d",Imem[pc]);
+	end
+endmodule
+
+module tb_initialize_Imem();
+wire[31:0] inst;
+reg clk;
+reg [12:0] input_PC;
+wire[12:0] output_PC;
+wire[12:0] outpfour;
+initial 
+begin 
+//$monitor("%b ",inst);
+#1
+input_PC = 0;
+clk=0;
+end
+
+always begin  #5 clk= ~clk; end
+
+always @(outpfour)
+begin 
+input_PC <= outpfour;
+end
+
+Instruction_memory x(inst,clk,output_PC); // inst => output of instruction memory , output_PC = Read_Address 
+PC p_c(input_PC,output_PC);		  // input_PC = output_PC = PC+4 
+plus_f_adder  adder(outpfour , output_PC,clk);// output of adder = inputPC , input_adder = output PC
+
+
+endmodule
+module pr_tb();
+
+wire Reg_Dst,Branch,Mem_Read,Mem_to_Reg,Mem_Write,ALU_Src,Reg_Write;
+wire[1:0] Alu_OP;
 wire Clock;
-Clock_Gen myClock(Clock);
-
-wire[31:0] pcOut, pcIn;
-PC myPC(pcOut, pcIn);
-
-wire[31:0] PCplus;
-plus_f_adder pcAdd(PCplus, pcOut, Clock);
-
-wire[31:0] instruction;
-Instruction_memory insMemory(instruction, Clock, pcOut);
-
-wire  Branch, Branch_Not_Equal, Mem_Read, Mem_Write, ALU_Src, Reg_Write, Jump, reset;
-wire[1:0] Mem_to_Reg, Reg_Dst;
-wire[2:0] ALU_Op;
-Control controlGod(Reg_Dst, Branch, Branch_Not_Equal, Mem_Read, Mem_to_Reg, ALU_Op, Mem_Write, ALU_Src, Reg_Write ,instruction[31:26] , Jump, reset);
-
-reg [4:0] ra;
-wire [4:0] Write_Reg;
-MUX_5_2 mux5(instruction[20:16], instruction[15:11], ra, Write_Reg, Reg_Dst);
-
-wire[4:0] Read_Reg_1, Read_Reg_2;
-wire[31:0] Write_Data,Read_Data_1, Read_Data_2;
-RegFile myRegFile(Read_Data_1, Read_Data_2, instruction[25:21], instruction[20:16], Write_Reg, Write_Data, Reg_Write, Clock);
-
-wire[31:0] Sign_Ext_Output;
-Sign_Extend extender(Sign_Ext_Output, instruction[15:0]);
-
-wire[31:0] Alu_Src_Output;
-MUX_32_1 aluIN_mux(Read_Data_2, Sign_Ext_Output, Alu_Src_Output, ALU_Src);
-
-wire[3:0] ALUctrl; 
-wire JR_Signal;
-ALU_Control aluCtrl(ALUctrl, ALU_Op, instruction[5:0], JR_Signal);
-
+reg[5:0] op_code;
+reg[5:0] fn;
+reg[4:0] rs, rt, rd;
+wire[31:0] Read_Data_1, Read_Data_2;
 wire[31:0] Alu_Result;
+wire[3:0]  Alu_Signal;
 wire Zero;
-ALU theALU(Read_Data_1, Alu_Src_Output, ALUctrl, Alu_Result, Zero, instruction[10:6]);
 
-wire[31:0] Read_Data;
-Data_Memory myMemory(Read_Data, Mem_Write, Mem_Read, Alu_Result, Read_Data_2, Clock);
+Clock_Gen gene(Clock);
+Control jimmmy (Reg_Dst, Branch, Mem_Read, Mem_to_Reg, Alu_OP, Mem_Write, ALU_Src, Reg_Write, op_code, 1'b0);
+RegFile anwar(Read_Data_1, Read_Data_2, rs, rt, rd, Alu_Result, Reg_Write ,Clock);
+ALU_Control abdellatif(Alu_Signal, Alu_OP, fn);
+ALU sersy(Read_Data_1, Read_Data_2, Alu_Signal , Alu_Result ,Zero);
 
-MUX_32_2 datamemory_mux(Alu_Result, Read_Data, 32'd0, Write_Data, Mem_to_Reg);
-
-wire[31:0] brAddIN;
-Shift_Left_32 shift_sign(brAddIN, Sign_Ext_Output);
-
-wire[31:0] branchAdded;
-branch_adder brAdder(branchAdded, PCplus, brAddIN);
-
-wire andOut;
-and (andOut,Zero,Branch);
-
-wire[31:0] PcSrcOUT;
-MUX_32_1 pcsrc_mux(branchAdded, PCplus, PcSrcOUT, andOut);
-
-wire[27:0] jumpin;
-Shift_Left_26 shift_add(jumpin, instruction[25:0]);
-
-MUX_32_1 pc_mux(PcSrcOUT, {PCplus[31:28],jumpin}, pcIn, Jump);
 
 initial
 begin
-ra <= 5'd31;
+$monitor("Read_Data_1:%h ,Read_Data_2:%h",Read_Data_1 ,Read_Data_2);
+$monitor("Alu_Signal:%h", Alu_Signal);
+$monitor("Alu_Result:%h	Zero:%h",Alu_Result ,Zero);
+#5
+op_code = 6'b000000;
+fn = 6'b100000;
+rs = 5'b10001;
+rt = 5'b10010;
+rd = 5'b01000;
 end
 endmodule
