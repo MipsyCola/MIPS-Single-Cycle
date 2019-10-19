@@ -27,7 +27,11 @@ module plus_f_adder (PCplus , pc,clk);
 output reg[12:0] PCplus;
 input wire clk;
 input wire[12:0] pc;
-always @(posedge clk) PCplus <= pc +1;
+integer file ;
+always @(posedge clk) 
+begin 
+	PCplus <= pc +1;
+end
 endmodule 
 
 /***************tt************************************************************************************
@@ -43,8 +47,29 @@ endmodule
 module PC( output1, input_pc);
 input wire[12:0] input_pc;
 output reg[12:0] output1;
+integer file ,size , _ ;
+initial 
+begin
+// ========================= for Size Calculation ============================
+size = 0;
+file = $fopen("ins.txt","r");
+while (! $feof (file) )
+	begin
+	_ = $fscanf (file,"%b",_);
+	size = size +1;
+	end
+$display ("SIZE === %d ",size);
+// ============================================================================
+end
+
 always@(input_pc)
-begin output1 <= input_pc; end
+begin 
+output1 <= input_pc; 
+if(input_pc >= size )
+	begin
+	$stop();
+	end
+end
 endmodule
 
 
@@ -67,13 +92,20 @@ input clk;
 reg[31:0] Imem[0:8191]; // 32KB memory ehich is 8192 register each one is 32bit 
 reg[31:0] i;
 integer file;
-initial $readmemb("ins.txt",Imem);
+integer _ ;
+integer size;
+
+initial 
+begin 
+$readmemb("ins.txt",Imem);
+
+end
 
 always @(posedge clk )
 begin 
-instruction <= Imem[pc]; 
-//$display ("instruction: %d",Imem[pc]);
+	instruction <= Imem[pc]; 
 end
+
 endmodule
 
 
@@ -102,6 +134,7 @@ always begin  #5 clk= ~clk; end //clock
 always @(outpfour)
 begin 
 input_PC <= outpfour;  // pc = pc+4 --> assgin the output of the adder to the pc 
+$display ("instruction: %b ",inst);
 end
 
 Instruction_memory x(inst,clk,output_PC); // inst => output of instruction memory , output_PC = Read_Address 
@@ -109,4 +142,4 @@ PC p_c(output_PC,input_PC);		  // input_PC = output_PC = PC+4
 plus_f_adder  adder(outpfour , output_PC,clk);// output of adder = inputPC , input_adder = output PC
 
 endmodule
-//𝓔𝓞𝓕
+//??????
