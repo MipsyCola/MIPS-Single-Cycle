@@ -44,12 +44,15 @@ endmodule
 * Discription :  A register that holds the pc
 ***************************************************************************************************/
 
-module PC( output1, input_pc);
+module PC( output1, input_pc ,end_program);
 input wire[12:0] input_pc;
 output reg[12:0] output1;
-integer file ,size , _ ;
+
+output reg end_program;
+integer file ,size, _ ;
 initial 
 begin
+
 // ========================= for Size Calculation ============================
 size = 0;
 file = $fopen("ins.txt","r");
@@ -60,14 +63,16 @@ while (! $feof (file) )
 	end
 $display ("SIZE === %d ",size);
 // ============================================================================
+
 end
 
 always@(input_pc)
 begin 
 output1 <= input_pc; 
-if(input_pc >= size )
+if(input_pc > size )
 	begin
-	$stop();
+	$display ("end_program will save the memory data and exit the verilog program ");
+	end_program = 1 ;
 	end
 end
 endmodule
@@ -114,19 +119,30 @@ endmodule
 * Parameters : N/A
 * Discription : Just for the sake of testing 
 ***************************************************************************************************/
+`include "dataMemory.v"
 
-module tb_initialize_Imem();
+module pc_test();
 wire[31:0] inst;
 reg clk;
 reg [12:0] input_PC; 
 wire[12:0] output_PC;
 wire[12:0] outpfour;
+wire eof ;
+
+// ===== for data memory =========
+wire [31:0] Read_Data;
+reg MemWrite,MemRead;
+reg [31:0] Address,Write_data;
+// ===============================
 initial 
 begin 
 //$monitor("%b ",inst);
 #1
 input_PC = 0; // intialize PC  at the first ins.
 clk=0;
+#10 Address  = 0; MemWrite = 1; Write_data = 4'b1000; 
+#10 Address  = 1; MemWrite = 1; Write_data = 4'b1111;
+#10 Address  = 2; MemWrite = 1; Write_data = 4'b0111;
 end
 
 always begin  #5 clk= ~clk; end //clock
@@ -138,8 +154,8 @@ $display ("instruction: %b ",inst);
 end
 
 Instruction_memory x(inst,clk,output_PC); // inst => output of instruction memory , output_PC = Read_Address 
-PC p_c(output_PC,input_PC);		  // input_PC = output_PC = PC+4 
+PC p_c(output_PC,input_PC , eof);		  // input_PC = output_PC = PC+4 
 plus_f_adder  adder(outpfour , output_PC,clk);// output of adder = inputPC , input_adder = output PC
+Data_Memory ray2(Read_Data,MemWrite,MemRead,Address,Write_data,clk,eof);
 
-endmodule
-//??????
+endmodule 
