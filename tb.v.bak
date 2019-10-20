@@ -658,7 +658,7 @@ end
 endmodule
 
 
-module full_house_tb();
+module final_tb();
 
 wire Clock;
 Clock_Gen myClock(Clock);
@@ -702,13 +702,14 @@ wire Zero;
 ALU theALU(Read_Data_1, Alu_Src_Output, ALUctrl, Alu_Result, Zero, instruction[10:6]);
 
 wire[31:0] Read_Data;
-Data_Memory myMemory(Read_Data, Mem_Write, Mem_Read, Alu_Result, Read_Data_2, Clock, eof);
+Data_Memory myMemory(Read_Data, Mem_Write, Mem_Read, Alu_Result, Read_Data_2, Clock);
 
 MUX_32_2 datamemory_mux(Alu_Result, Read_Data,branchAdded, Write_Data, Mem_to_Reg);
 
 wire[31:0] brAddIN;
 Shift_Left_32 shift_sign(brAddIN, Sign_Ext_Output);
 
+wire[31:0] branchAdded;
 branch_adder brAdder(branchAdded, PCplus, brAddIN);
 
 
@@ -730,8 +731,9 @@ Shift_Left_26 shift_add(jumpin, instruction[25:0]);
 MUX_32_1 pc_mux(PcSrcOUT, {PCplus[31:28],jumpin}, pc_mux_output, Jump);
 
 /********jump register handling******/
-not jr_not(jr_not_output,JR_Signal);
-and jr_and(jr_and_output,Reg_Write,jr_not_output);
+wire jr_and_output,jr_not_output,;
+not jr_not(jr_not_output,JR_Signal)
+and jr_and(jr_and_output,Reg_Write,jr_not_output)
 MUX_32_1 jr_mux(pc_mux_output, Read_Data_1,pcIn,JR_Signal);
 /************************************/
 
