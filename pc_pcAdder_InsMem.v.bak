@@ -4,7 +4,7 @@ input wire clk;
 input wire[31:0] pc;
 integer file ;
 
-// initial begin PCplus =0 ; end
+initial begin PCplus =0 ; end
 
 always @(posedge clk) 
 begin 
@@ -37,7 +37,10 @@ end
 
 always@(input_pc)
 begin 
+$display ("output pc before=%d\n",output1);
 output1 <= input_pc; 
+$display ("output pc after=%d\n",output1);
+
 if(input_pc > size )
 	begin
 	$display ("end_program will save the memory data and exit the verilog program ");

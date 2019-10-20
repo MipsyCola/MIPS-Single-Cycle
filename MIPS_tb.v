@@ -92,6 +92,7 @@ MUX_32_1 jr_mux(pc_mux_output, Read_Data_1,pcIn,JR_Signal);
 /*************************************/
 initial
 begin
+$monitor("PCCCCCCC=%b",pcOut);
 ra <= 5'd31;
 end
 endmodule

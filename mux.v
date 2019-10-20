@@ -23,8 +23,9 @@ begin
 
 	else 
 	begin
-	$display ("RegDst: %b",RegDst);
 	end
+	$display ("RegDst: %b",RegDst);
+
 end
 endmodule
 module MUX_32_1(input_0,input1,output_mux,selector);
@@ -48,8 +49,10 @@ begin
 
 	else 
 	begin
-	$display ("selectorMux_32_1: %b",selector);
+//	$display ("selectorMux_32_1: %b",selector);
 	end
+	$display ("selectorMux_32_1: %b",selector);
+
 end
 
 endmodule
@@ -82,8 +85,9 @@ begin
 
 	else 
 	begin
-	$display ("selector_Mux_32_2: %b",selector);
 	end
+	$display ("selector_Mux_32_2: %b",selector);
+
 end
 
 endmodule

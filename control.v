@@ -6,6 +6,19 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 	input  wire [5:0] Inst_31_26;
 	input  wire reset;
 
+	initial
+	begin
+	Branch = 0;
+	Jump = 0 ;
+	Branch_Not_Equal = 0;
+	Mem_Read = 0 ;
+	Mem_Write =0;
+	Reg_Write = 0;
+	ALU_Src = 0;
+	Mem_to_Reg = 0;
+	Reg_Dst=0;
+	end
+
 	always@(Inst_31_26 or posedge reset) // if any of instruction opcode changes or postive edge of reset comes
 	begin
 		if(reset == 1'b1) 

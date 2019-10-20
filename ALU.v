@@ -24,7 +24,7 @@ module ALU(Read_Data_1,Alu_Src_Output,ALUctrl,Alu_Result,Zero,Inst_10_6);
 	//localparam SH = 4'b1111;
 	//localparam  	= 4'b0101; 
 
-	
+	initial begin Zero =  0 ; end	
 	always@(Read_Data_1,Alu_Src_Output,ALUctrl)
 	begin 
 		Zero <= ( Read_Data_1 == Alu_Src_Output);

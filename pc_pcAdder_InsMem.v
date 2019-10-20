@@ -38,6 +38,7 @@ end
 always@(input_pc)
 begin 
 output1 <= input_pc; 
+
 if(input_pc > size )
 	begin
 	$display ("end_program will save the memory data and exit the verilog program ");
@@ -64,6 +65,7 @@ end
 
 always @(posedge clk )
 begin 
+	$display("INST_PC==================%b",pc);
 	instruction <= Imem[pc]; 
 end
 
