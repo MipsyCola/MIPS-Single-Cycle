@@ -1,48 +1,16 @@
-/*
-* File : instructionMemory.v
-* Name : Eslam Ahmed & Amr Elsersy 
-* Course : CO2
-* Data : 10/18/2019
-* Contents : Modules for instruction memory, PC register and +4Adder all working with positive edge clock  
-* Description : Fetching the instruction from memory 
-		PC register holds the address of the current instruction
-		Instruction memory stores all the instrictions (max 8192 instruction = 32KB ,each instruction = 32bit = 4Bytes = 1word)  
-		Plus_f_adder increase the PC addres by 1 (word) to point at the next instruction  
-* 
-*/
-
-
-/***************tt************************************************************************************
-* Module : plus_f_adder (PCplus , pc,clk)
-* Parameters : 
-*	output: 1
-*		PCplus: new instruction address
-*	inputs: 2
-*		clk : the master clock of all modules 
-*		pc : a 32 bit register holds the address of the instruction to be outputed
-* Discription :  increase the PC addres by 1 (word) to point at the next instruction  
-***************************************************************************************************/
-
 module plus_f_adder (PCplus , pc,clk);
 output reg[31:0] PCplus;
 input wire clk;
 input wire[31:0] pc;
 integer file ;
+
+// initial begin PCplus =0 ; end
+
 always @(posedge clk) 
 begin 
 	PCplus <= pc +1;
 end
 endmodule 
-
-/***************tt************************************************************************************
-* Module : PC( output1, input_pc)
-* Parameters : 
-*	output: 1
-*		output1: PC
-*	inputs: 1
-*		input_pc : PC
-* Discription :  A register that holds the pc
-***************************************************************************************************/
 
 module PC( output1, input_pc ,end_program);
 input wire[31:0] input_pc;
@@ -52,6 +20,7 @@ output reg end_program;
 integer file ,size, _ ;
 initial 
 begin
+output1 = 0 ;
 
 // ========================= for Size Calculation ============================
 size = 0;
@@ -78,18 +47,6 @@ end
 endmodule
 
 
-
-/***************tt************************************************************************************
-* Module : Instruction_memory(instruction,clk,pc)
-* Parameters : 
-*	output: 1
-*		instruction: a 32 register holds the instruction machine code
-*	inputs: 2
-*		clk : the master clock of all modules 
-*		pc : a 13 bit register holds the adress of the instruction to be outputed
-* Discription :  outputs the instruction at the index PC 
-***************************************************************************************************/
-
 module Instruction_memory(instruction,clk,pc);
 output reg[31:0] instruction;
 input [31:0] pc;
@@ -113,12 +70,48 @@ end
 endmodule
 
 
+/*
+* File : instructionMemory.v
+* Name : Eslam Ahmed & Amr Elsersy 
+* Course : CO2
+* Data : 10/18/2019
+* Contents : Modules for instruction memory, PC register and +4Adder all working with positive edge clock  
+* Description : Fetching the instruction from memory 
+		PC register holds the address of the current instruction
+		Instruction memory stores all the instrictions (max 8192 instruction = 32KB ,each instruction = 32bit = 4Bytes = 1word)  
+		Plus_f_adder increase the PC addres by 1 (word) to point at the next instruction  
+* 
+*/
+
+
+/***************tt************************************************************************************
+* Module : plus_f_adder (PCplus , pc,clk)
+* Parameters : 
+*	output: 1
+*		PCplus: new instruction address
+*	inputs: 2
+*		clk : the master clock of all modules 
+*		pc : a 32 bit register holds the address of the instruction to be outputed
+* Discription :  increase the PC addres by 1 (word) to point at the next instruction  
+***************************************************************************************************/
+
+
+/***************tt************************************************************************************
+* Module : Instruction_memory(instruction,clk,pc)
+* Parameters : 
+*	output: 1
+*		instruction: a 32 register holds the instruction machine code
+*	inputs: 2
+*		clk : the master clock of all modules 
+*		pc : a 13 bit register holds the adress of the instruction to be outputed
+* Discription :  outputs the instruction at the index PC 
+***************************************************************************************************/
 /***************tt************************************************************************************
 * Module : tb_initialize_Imem()
 * Parameters : N/A
 * Discription : Just for the sake of testing 
 ***************************************************************************************************/
-`include "dataMemory.v"
+/*`include "dataMemory.v"
 
 module pc_test();
 wire[31:0] inst;
@@ -158,3 +151,14 @@ plus_f_adder  adder(outpfour , output_PC,clk);// output of adder = inputPC , inp
 Data_Memory ray2(Read_Data,MemWrite,MemRead,Address,Write_data,clk,eof);
 
 endmodule 
+*/
+/***************tt************************************************************************************
+* Module : PC( output1, input_pc)
+* Parameters : 
+*	output: 1
+*		output1: PC
+*	inputs: 1
+*		input_pc : PC
+* Discription :  A register that holds the pc
+***************************************************************************************************/
+

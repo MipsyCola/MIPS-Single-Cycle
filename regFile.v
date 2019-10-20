@@ -35,8 +35,10 @@ end
 always @(posedge Clock)
 begin
 if(Reg_Write)
+begin
 Reg_File[Write_Reg] <= Write_Data;
-$display ("Write_Data=%b",Write_Data);
+$display ("Write_Data=%b",Reg_File[Write_Reg]);
+end
 end
 
 always @(negedge Clock)

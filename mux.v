@@ -6,12 +6,12 @@ input wire [1:0]RegDst;
 
 always@(in0,in1,RegDst)
 begin 
-	if(RegDst == 0)
+	if(RegDst === 0)
 	begin
 	Write_Register <= in0;
 	end
 
-	else if (RegDst == 1)
+	else if (RegDst === 1)
 	begin
 	Write_Register <= in1;
 	end
@@ -48,7 +48,7 @@ begin
 
 	else 
 	begin
-	$display ("selector: %b",selector);
+	$display ("selectorMux_32_1: %b",selector);
 	end
 end
 
@@ -82,7 +82,7 @@ begin
 
 	else 
 	begin
-	$display ("selector: %b",selector);
+	$display ("selector_Mux_32_2: %b",selector);
 	end
 end
 

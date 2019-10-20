@@ -13,9 +13,10 @@
 module full_house_tb();
 
 wire Clock;
-Clock_Gen myClock(Clock);
+Clocker myClock(Clock);
 
-wire[31:0] pcOut, pcIn;
+wire[31:0] pcOut;
+reg [31:0] pcIn;
 wire eof;
 PC myPC(pcOut, pcIn, eof);
 
@@ -92,6 +93,8 @@ MUX_32_1 jr_mux(pc_mux_output, Read_Data_1,pcIn,JR_Signal);
 /*************************************/
 initial
 begin
+#1
 ra <= 5'd31;
+pcIn <= 0;
 end
 endmodule

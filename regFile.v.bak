@@ -36,7 +36,7 @@ always @(posedge Clock)
 begin
 if(Reg_Write)
 Reg_File[Write_Reg] <= Write_Data;
-$display ("Write_Data=%b",Write_Data);
+$display ("Write_Data=%b",Reg_File[Write_Reg]);
 end
 
 always @(negedge Clock)
@@ -48,36 +48,3 @@ $display ("Read_Reg_2=%b",Read_Reg_2);
 end
 endmodule
 
-module Clock_Gen(Clock);
-output reg Clock;
-initial
-begin
-Clock=0;
-end
-always
-begin
-#31.25
-Clock=~(Clock);
-end
-endmodule
-module regFile_tb();
-reg[4:0] Read_Reg_1, Read_Reg_2, Write_Reg;
-reg[31:0] Write_Data;
-reg Reg_Write;
-wire Clock;
-wire[31:0] Read_Data_1, Read_Data_2;
-
-Clock_Gen generat(Clock);
-RegFile anwar(Read_Data_1, Read_Data_2, Read_Reg_1, Read_Reg_2, Write_Reg, Write_Data, Reg_Write, Clock);
-
-initial
-begin
-Read_Reg_1=5'b10001;
-Read_Reg_2=5'b10010;
-Write_Reg= 5'b01000;
-Write_Data=32'h00000000;
-Reg_Write=0;
-//$monitor("%h 	%h",Read_Data_1, Read_Data_2);
-end
-
-endmodule
