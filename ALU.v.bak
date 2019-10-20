@@ -3,7 +3,7 @@ module ALU(Read_Data_1,Alu_Src_Output,ALUctrl,Alu_Result,Zero,Inst_10_6);
 	input  wire signed [31:0] Read_Data_1;
 	input  wire signed [31:0] Alu_Src_Output;
 	input  wire [3:0] ALUctrl;
-	input  wire [4:0] Inst_10_6;
+	input  wire [5:0] Inst_10_6;
 	output reg  signed [31:0] Alu_Result;
 	output reg  Zero;
 
@@ -44,4 +44,3 @@ module ALU(Read_Data_1,Alu_Src_Output,ALUctrl,Alu_Result,Zero,Inst_10_6);
 		endcase
 	end
 endmodule
-

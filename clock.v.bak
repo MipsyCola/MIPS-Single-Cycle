@@ -1,4 +1,4 @@
-module Clocker(Clock);
+module Clock_Gen(Clock);
 output reg Clock;
 initial
 begin

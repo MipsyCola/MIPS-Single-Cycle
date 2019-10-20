@@ -87,4 +87,28 @@ begin
 end
 
 endmodule
+module TEST_MUX;
 
+reg [4:0] ins_20_16;
+reg [4:0] ins_15_11;
+wire  [4:0] Write_register;
+reg Regdst;
+
+initial 
+begin
+$monitor("output=%b",Write_register);
+
+ins_20_16 = 5'b01010;
+ins_15_11 = 5'b00000;
+
+#1 Regdst = 0;
+#1 Regdst = 1;
+#1 Regdst = 1'bx;
+#1 Regdst = 1'bz;
+
+end
+
+MUX_5 Mostafa_Ray2(ins_20_16,ins_15_11,Write_register,Regdst);
+
+
+endmodule

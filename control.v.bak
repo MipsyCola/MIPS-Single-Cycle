@@ -183,7 +183,7 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					Reg_Write<=1'b1;
 					ALU_Op<=3'b111;
 				end	
-				6'd32:	//lb
+			/*	6'd32:	//lb
 				begin
 					Reg_Dst<=2'b00;
 					Branch<=1'b0;
@@ -234,9 +234,32 @@ module Control(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 					ALU_Src<=1'b1;
 					Reg_Write<=1'b1;
 					ALU_Op<=3'b111;
-				end			
+				end		*/	
 		endcase
 	end
 end
 endmodule
 
+
+
+module control_bn();
+wire Branch,Branch_Not_Equal,Mem_Read,Mem_Write,ALU_Src,Reg_Write,Jump;
+wire[1:0]  Reg_Dst,Mem_to_Reg;
+wire[2:0] ALU_Op;
+reg[5:0] op_code;
+reg reset;
+Control jimmy(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Write,ALU_Src,Reg_Write,op_code,Jump,reset);
+initial
+begin
+$monitor("Reg_Dst:%b, Branch:%b, Branch_Not_Equal:%b, Mem_Read:%b, Mem_to_Reg:%b, Mem_Write:%b, ALU_Src:%b, Reg_Write:%b, Alu_OP:%b, Jump:%b",Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,Mem_Write,ALU_Src,Reg_Write,ALU_Op,Jump);
+reset =1'b0;
+#5
+op_code = 6'b000000;
+#5
+op_code = 6'd35;
+#5
+op_code = 6'd8;
+#5
+reset = 1'b1;
+end
+endmodule

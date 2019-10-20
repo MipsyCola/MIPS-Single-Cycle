@@ -13,7 +13,7 @@
 module full_house_tb();
 
 wire Clock;
-Clocker myClock(Clock);
+Clock_Gen myClock(Clock);
 
 wire[31:0] pcOut, pcIn;
 wire eof;

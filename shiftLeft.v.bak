@@ -8,7 +8,6 @@ Shifted_Output <= (Inst_25_0 << 2);
 end
 
 endmodule
-
 module Shift_Left_32(Shifted_Output, signextend);
 input wire[31:0] signextend;
 output reg[31:0] Shifted_Output;

@@ -66,4 +66,3 @@ module ALU_Control(Alu_Signal, Alu_OP, Inst_5_0,JR_Signal);
 		end
 	end
 endmodule
-
