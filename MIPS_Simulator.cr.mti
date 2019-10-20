@@ -1,0 +1,74 @@
+C:/Modeltech_pe_edu_10.4a/examples/MIPS/control.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/MIPS/control.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Control
+-- Compiling module control_bn
+
+Top level modules:
+	control_bn
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/MIPS/signExtend.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/MIPS/signExtend.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Sign_Extend
+
+Top level modules:
+	Sign_Extend
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/MIPS/mux.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/MIPS/mux.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module MUX_5_2
+-- Compiling module MUX_32_1
+-- Compiling module MUX_32_2
+-- Compiling module TEST_MUX
+
+Top level modules:
+	MUX_5_2
+	MUX_32_1
+	MUX_32_2
+	TEST_MUX
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/MIPS/ALU.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/MIPS/ALU.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/MIPS/dataMemory.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/MIPS/dataMemory.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Data_Memory
+-- Compiling module TEST
+
+Top level modules:
+	TEST
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/MIPS/AluControl.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/MIPS/AluControl.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module ALU_Control
+
+Top level modules:
+	ALU_Control
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/MIPS/clock.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/MIPS/clock.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Clock_Gen
+
+Top level modules:
+	Clock_Gen
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/MIPS/regFile.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/MIPS/regFile.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module RegFile
+-- Compiling module Clock_Gen
+-- Compiling module regFile_tb
+
+Top level modules:
+	regFile_tb
+
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/MIPS/shiftLeft.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/MIPS/shiftLeft.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Shift_Left
+
+Top level modules:
+	Shift_Left
+
+} {} {}}

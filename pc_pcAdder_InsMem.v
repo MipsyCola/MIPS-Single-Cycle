@@ -103,7 +103,6 @@ integer size;
 initial 
 begin 
 $readmemb("ins.txt",Imem);
-
 end
 
 always @(posedge clk )
@@ -140,9 +139,9 @@ begin
 #1
 input_PC = 0; // intialize PC  at the first ins.
 clk=0;
-#10 Address  = 0; MemWrite = 1; Write_data = 4'b1000; 
-#10 Address  = 1; MemWrite = 1; Write_data = 4'b1111;
-#10 Address  = 2; MemWrite = 1; Write_data = 4'b0111;
+//#10 Address  = 0; MemWrite = 1; Write_data = 4'b1000; 
+//#10 Address  = 1; MemWrite = 1; Write_data = 4'b1111;
+//#10 Address  = 2; MemWrite = 1; Write_data = 4'b0111;
 end
 
 always begin  #5 clk= ~clk; end //clock
