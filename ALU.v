@@ -1,12 +1,10 @@
-module ALU(Read_Data_1,Alu_Src_Output,ALUctrl,Alu_Result,Zero,Inst_10_6);
-
+module ALU(Alu_Result, Zero, Inst_10_6, Read_Data_1, Alu_Src_Output, ALUctrl);
 	input  wire signed [31:0] Read_Data_1;
 	input  wire signed [31:0] Alu_Src_Output;
 	input  wire [3:0] ALUctrl;
 	input  wire [4:0] Inst_10_6;
 	output reg  signed [31:0] Alu_Result;
 	output reg  Zero;
-
 	localparam AND  = 4'b0000;
 	localparam OR   = 4'b0001;
 	localparam ADD  = 4'b0010;
@@ -24,7 +22,10 @@ module ALU(Read_Data_1,Alu_Src_Output,ALUctrl,Alu_Result,Zero,Inst_10_6);
 	//localparam SH = 4'b1111;
 	//localparam  	= 4'b0101; 
 
-	initial begin Zero =  0 ; end	
+	initial 
+	begin 
+		Zero =  0 ; 
+	end	
 	always@(Read_Data_1,Alu_Src_Output,ALUctrl)
 	begin 
 		Zero <= ( Read_Data_1 == Alu_Src_Output);
@@ -40,8 +41,11 @@ module ALU(Read_Data_1,Alu_Src_Output,ALUctrl,Alu_Result,Zero,Inst_10_6);
 			SRL: Alu_Result <=   Alu_Src_Output >> Inst_10_6  ;
 			SRA: Alu_Result <=   Alu_Src_Output >>>Inst_10_6  ;
 			LUI: Alu_Result <=   Alu_Src_Output << 16  ;
-			default : $display ("ERROR_NOT_RAY2 ALUctrl: %b",ALUctrl);
+			default : 
+			begin
+				//Alu_Result <=  Read_Data_1 +  Alu_Src_Output ;
+				$display ("ERROR_NOT_RAY22 ALUctrl: %b",ALUctrl);
+			end
 		endcase
 	end
 endmodule
-
