@@ -613,7 +613,7 @@ end
 endmodule
 
 
-module mips();
+module ray2();
 /*********WIRES********/
 wire Clock, Branch, Branch_Not_Equal, Mem_Read, Mem_Write, ALU_Src, Reg_Write, Jump, JR_Signal, Zero, beq_and_output, bne_and_output, bne_not_output, branch_or_output, jr_not_output;
 wire[31:0] pcOut, Read_Data, branch_adder_output, pc_branch_mux_output, jump_address_output, jump_mux_output, pcIn, jr_mux_output, data_memory_mux_output, instruction, Read_Data_1, Read_Data_2, Sign_Ext_Output, Alu_Result, alu_src_mux_Output;
@@ -698,8 +698,9 @@ MUX_32_1 jr_mux(jr_mux_output, jump_mux_output, Read_Data_1, JR_Signal);
 /*****************************************/
 initial
 begin
-$monitor("pcin: %h, pcout:%h",pcIn, pcOut);
+$monitor("Read_Data_1: %h, alu_src_mux_Output: %h, Alu_Result: %h",Read_Data_1, alu_src_mux_Output,Alu_Result);
 //$monitor("pcin: %h, pcout:%h, instruction: %h \n Read_Reg_1: %h,Read_Reg_2: %h, Read_Data_1: %h, Read_Data_2: %h \n data_memory_mux_output:%h, Alu_Result: %h",pcIn, pcOut,instruction,instruction[25:21], instruction[20:16],Read_Data_1,Read_Data_2,data_memory_mux_output, Alu_Result);
 end
 
 endmodule
+
