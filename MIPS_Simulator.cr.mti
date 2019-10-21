@@ -81,6 +81,17 @@ Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 
 Top level modules:
 	Clocker
 
+} {} {}} C:/Modeltech_pe_edu_10.4a/examples/MIPS/pc_pcAdder_InsMem.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/MIPS/pc_pcAdder_InsMem.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module plus_f_adder
+-- Compiling module PC
+-- Compiling module Instruction_memory
+
+Top level modules:
+	plus_f_adder
+	PC
+	Instruction_memory
+
 } {} {}} C:/Modeltech_pe_edu_10.4a/examples/MIPS/regFile.v {1 {vlog -work work -stats=none C:/Modeltech_pe_edu_10.4a/examples/MIPS/regFile.v
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module RegFile
