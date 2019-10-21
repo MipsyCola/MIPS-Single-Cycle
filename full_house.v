@@ -13,7 +13,7 @@
 `include "mux.v"
 `include "clock.v"
 
-module mips_processor();
+module mips();
 /*********WIRES********/
 wire Clock, eof, Branch, Branch_Not_Equal, Mem_Read, Mem_Write, ALU_Src, Reg_Write, Jump, JR_Signal, Zero, beq_and_output, bne_and_output, bne_not_output, branch_or_output, jr_not_output;
 wire[31:0] pcOut, Read_Data, branch_adder_output, pc_branch_mux_output, jump_address_output, jump_mux_output, pcIn, jr_mux_output, data_memory_mux_output, instruction, Read_Data_1, Read_Data_2, Sign_Ext_Output, Alu_Result, alu_src_mux_Output;
