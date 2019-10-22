@@ -40,16 +40,13 @@ module REG_FILE(Read_Data_1, Read_Data_2, Read_Reg_1, Read_Reg_2, Write_Reg, Wri
 		Read_Data_1 = Reg_File[Read_Reg_1];
 		Read_Data_2 = Reg_File[Read_Reg_2];
 	end
+	
 	always @(negedge Clock)
 	begin
-	if(Reg_Write)
+		if(Reg_Write)
 		begin
 			Reg_File[Write_Reg] <= Write_Data;
 		end
-	end
-	initial
-	begin
-	$monitor("***** register 8: %h *****", Reg_File[8]);
 	end
 
 endmodule 
