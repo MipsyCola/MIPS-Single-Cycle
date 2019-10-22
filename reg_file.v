@@ -25,12 +25,10 @@ module REG_FILE(Read_Data_1, Read_Data_2, Read_Reg_1, Read_Reg_2, Write_Reg, Wri
 		Reg_File[13] <= 32'h00000000;
 		Reg_File[14] <= 32'h00000000;
 		Reg_File[15] <= 32'h00000000;
-		Reg_File[16] <= 32'h00000003;
+		Reg_File[16] <= 32'h00000000;
 		Reg_File[17] <= 32'h00000002;
 		Reg_File[18] <= 32'h00000001;
-		Reg_File[19] <= 32'h00000004;
-		Reg_File[20] <= 32'h00000005;
-		Reg_File[21] <= 32'h00000006;	
+		Reg_File[19] <= 32'h00000000;
 		Reg_File[29] <= 32'h00001FFF; //stack pointer address
 		Reg_File[30] <= 32'h00000000;
 		Reg_File[31] <= 32'h00000000;
