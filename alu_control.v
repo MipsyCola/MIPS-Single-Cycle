@@ -8,19 +8,19 @@ module ALU_CONTROL(Alu_Signal,JR_Signal, Alu_OP, Inst_5_0);
 	begin                         	// operations are executed from begining;
 		if(Alu_OP==3'b000)	// sw or lw --> add or addi
 		begin
-JR_Signal <= 1'b0;
+			JR_Signal <= 1'b0;
 			Alu_Signal <= 4'b0010; 
 		end
 
 		else if(Alu_OP==3'b001) // sub for beq
 		begin
-JR_Signal <= 1'b0;
+			JR_Signal <= 1'b0;
 			Alu_Signal <= 4'b0110;
 		end
 
 		else if(Alu_OP==3'b011) // andi
 		begin
-JR_Signal <= 1'b0;
+			JR_Signal <= 1'b0;
 			Alu_Signal <= 4'b0000;
 		end
 

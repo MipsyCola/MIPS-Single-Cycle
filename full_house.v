@@ -88,6 +88,6 @@ MUX_32_1 jr_mux(jr_mux_output, jump_mux_output, Read_Data_1, JR_Signal);
 
 initial
 begin
-$monitor("***************** %b *******************\n pcout:%h, instruction: %h \n Read_Reg_1: %h,Read_Reg_2: %h, Read_Data_1: %h, Read_Data_2: %h \n Read_Data_1: %h, alu_src_mux_Output:%h, Zero:%h, Alu_Result: %h\n ***************************************",Clock, pcOut,instruction,instruction[25:21], instruction[20:16],Read_Data_1,Read_Data_2,  Read_Data_1,alu_src_mux_Output,Zero, Alu_Result);
+$monitor("***************** %b *******************\n pcout:%h, instruction: %h \n Read_Data_1:%h, Read_Data_2:%h, instruction[25:21]:%h, instruction[20:16]:%h \n Branch_Not_Equal:%h, bne_and_output:%h, \n ALU_Src: %h, alu_src_mux_Output:%h, Zero:%h, Alu_Result: %h\n ***************************************",Clock, pcOut,instruction,Read_Data_1, Read_Data_2, instruction[25:21], instruction[20:16], Branch_Not_Equal, bne_and_output, ALU_Src,alu_src_mux_Output,Zero, Alu_Result);
 end
 endmodule
