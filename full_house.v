@@ -12,7 +12,6 @@
 `include "jump_address.v"
 `include "mux.v"
 `include "clock.v"
-`include "temp_reg.v"
 
 module mips_processor();
 
@@ -31,7 +30,7 @@ CLOCK myClock(Clock);
 
 /*****PC & PC ADDER*****/
 PC pc(pcOut,jr_mux_output,Clock,eof);
-PC_ADDER pc_adder(pcIn,pcOut);
+PC_ADDER pc_adder(pcIn, pcOut);
 /***********************/
 
 /******INSTRUCTION MEMORY**********/
@@ -56,14 +55,13 @@ ALU_CONTROL alu_control(ALUctrl, JR_Signal, ALU_Op, instruction[5:0]);
 /**********************************/
 
 /****************ALU *******************/
-ALU alu(Alu_Result,Zero,instruction[10:6], Read_Data_1, alu_src_mux_Output, ALUctrl);
+ALU alu(Alu_Result, Zero, instruction[10:6], Read_Data_1, alu_src_mux_Output, ALUctrl);
 MUX_32_1 alu_src_mux(alu_src_mux_Output, Read_Data_2, Sign_Ext_Output, ALU_Src);
 /***************************************/
 
 /**********DATA MEMORY**************/
 DATA_MEMORY data_memory(Read_Data, Mem_Write, Mem_Read, Alu_Result[12:0], Read_Data_2, Clock, eof);
-temp_reg treg(tempregdata,pcIn,Jump);
-MUX_32_2 data_mem_mux(data_memory_mux_output, Alu_Result, Read_Data, tempregdata, Mem_to_Reg);
+MUX_32_2 data_mem_mux(data_memory_mux_output, Alu_Result, Read_Data, pcIn, Mem_to_Reg);
 /**********************************/
 
 /***BRANCH EQUAL AND BRANCH NOT EQUAL***/
@@ -88,6 +86,6 @@ MUX_32_1 jr_mux(jr_mux_output, jump_mux_output, Read_Data_1, JR_Signal);
 
 initial
 begin
-$monitor("***************** %b *******************\n pcout:%h, instruction: %h \n Read_Data_1:%h, Read_Data_2:%h, instruction[25:21]:%h, instruction[20:16]:%h \n Branch_Not_Equal:%h, bne_and_output:%h, \n ALU_Src: %h, alu_src_mux_Output:%h, Zero:%h, Alu_Result: %h\n ***************************************",Clock, pcOut,instruction,Read_Data_1, Read_Data_2, instruction[25:21], instruction[20:16], Branch_Not_Equal, bne_and_output, ALU_Src,alu_src_mux_Output,Zero, Alu_Result);
+$monitor("***************** %b *******************\n pcOut=%h, pcIn:%h, instruction: %h \n Read_Data_1:%h, Read_Data_2:%h, instruction[25:21]:%h, instruction[20:16]:%h \n beq_and_output:%h, Branch:%h, branch_or_output:%h, pc_branch_mux_output:%h\n Read_Data_1:%h, alu_src_mux_Output:%h, ALU_Src: %h, Zero:%h, Alu_Result: %h\n ***************************************",Clock,pcOut,pcIn,instruction,Read_Data_1, Read_Data_2, instruction[25:21], instruction[20:16], beq_and_output, Branch,branch_or_output,pc_branch_mux_output, Read_Data_1, alu_src_mux_Output, ALU_Src,Zero, Alu_Result);
 end
 endmodule

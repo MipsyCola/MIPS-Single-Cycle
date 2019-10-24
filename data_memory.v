@@ -29,7 +29,6 @@ module DATA_MEMORY(Read_Data,MemWrite,MemRead,Address,Write_data,clock,eof);
 	end
 	always @ (posedge MemRead)
 	begin
-	//if( MemRead == 1)
 		Read_Data <= write_data_storage[Address];
 	end
 endmodule

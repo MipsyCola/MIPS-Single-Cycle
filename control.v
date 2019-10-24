@@ -136,7 +136,7 @@ module CONTROL(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 				Mem_to_Reg<=2'b00;
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b0;
-				Reg_Write<=1'b1;
+				Reg_Write<=1'b0;
 				ALU_Op<=3'b001;
 			end
 			6'd5:	//bne
@@ -149,7 +149,7 @@ module CONTROL(Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Wr
 				Mem_to_Reg<=2'b00;
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b0;
-				Reg_Write<=1'b1;
+				Reg_Write<=1'b0;
 				ALU_Op<=3'b001;
 			end
 			6'd2:	//jump

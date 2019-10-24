@@ -28,12 +28,27 @@ module ALU(Alu_Result, Zero, Inst_10_6, Read_Data_1, Alu_Src_Output, ALUctrl);
 	end	
 	always@(Read_Data_1,Alu_Src_Output,ALUctrl)
 	begin 
-		Zero <= ( Read_Data_1 == Alu_Src_Output);
 		case(ALUctrl)
-			AND: Alu_Result <=  Read_Data_1 &  Alu_Src_Output ;
-			OR : Alu_Result <=  Read_Data_1 |  Alu_Src_Output ;
-			ADD: Alu_Result <=  Read_Data_1 +  Alu_Src_Output ;
-			SUB: Alu_Result <=  Read_Data_1 -  Alu_Src_Output ;
+			AND: 
+			begin
+			Alu_Result <=  Read_Data_1 &  Alu_Src_Output ;
+			Zero = (Read_Data_1 &  Alu_Src_Output) ? 0: 1;
+			end
+			OR :
+			begin
+			Alu_Result <=  Read_Data_1 |  Alu_Src_Output ;
+			Zero = ( Read_Data_1 |  Alu_Src_Output )? 0: 1;
+			end
+			ADD:
+			begin
+			Alu_Result <=  Read_Data_1 +  Alu_Src_Output ;
+			Zero = (Read_Data_1 +  Alu_Src_Output )? 0 : 1;
+			end
+			SUB: 
+			begin
+			Alu_Result <=  Read_Data_1 -  Alu_Src_Output ;
+			Zero = (Read_Data_1 -  Alu_Src_Output)? 0:1;
+			end
 			SLT: Alu_Result <=  (Read_Data_1 < Alu_Src_Output);
 			NOR: Alu_Result <= ~(Read_Data_1 | Alu_Src_Output);
 			XOR: Alu_Result <=   Read_Data_1 ^ Alu_Src_Output ;
