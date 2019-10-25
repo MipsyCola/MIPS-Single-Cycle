@@ -5,7 +5,7 @@ module INS_MEMORY(instruction, clk, pc);
 	reg[31:0] Imem[0:8191]; // 32KB memory ehich is 8192 register each one is 32bit 
 	initial 
 	begin 
-		$readmemb("ins.txt",Imem);
+		$readmemh("ins.txt",Imem);
 	end
 	always @(negedge clk )
 	begin 

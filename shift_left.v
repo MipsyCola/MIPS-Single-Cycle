@@ -18,5 +18,4 @@ begin
 Shifted_Output <= (signextend << 2);
 end
 
-endmodule
-
+endmodule 

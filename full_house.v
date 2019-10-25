@@ -13,7 +13,7 @@
 `include "mux.v"
 `include "clock.v"
 
-module mips_processor();
+module MIPS();
 
 /*********WIRES********/
 wire Clock, eof, Branch, Branch_Not_Equal, Mem_Read, Mem_Write, ALU_Src, Reg_Write, Jump, JR_Signal, Zero, beq_and_output, bne_and_output, bne_not_output, branch_or_output, jr_not_output;
@@ -39,7 +39,7 @@ INS_MEMORY ins_memory(instruction, Clock, pcOut);
 
 /**********REGISTER FILE**********/
 Reg_Dst_MUX reg_dest_mux(reg_dest_mux_output, instruction[20:16], instruction[15:11], Reg_Dstn);
-REG_FILE register_file(Read_Data_1, Read_Data_2, instruction[25:21], instruction[20:16], reg_dest_mux_output, data_memory_mux_output, jr_and_output, Clock);
+REG_FILE register_file(Read_Data_1, Read_Data_2, instruction[25:21], instruction[20:16], reg_dest_mux_output, data_memory_mux_output, jr_and_output, Clock,eof);
 /**********************************/
 
 /**************CONTROLLER**********/

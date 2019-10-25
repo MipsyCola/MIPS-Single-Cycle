@@ -7,12 +7,13 @@ module PC(PC_plus, PC, clock, eof);
 	initial 
 	begin
 		PC_plus = 32'd0;
+		eof = 0 ;
 	// ========================= for Size Calculation ============================
 	size = 0;
 	file = $fopen("ins.txt","r");
 	while (! $feof (file) )
 	begin
-	_ = $fscanf (file,"%b",_);
+	_ = $fscanf (file,"%h",_);
 	size = size +1;
 	end
 	$display ("SIZE === %d ",size);
