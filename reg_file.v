@@ -50,7 +50,7 @@ module REG_FILE(Read_Data_1, Read_Data_2, Read_Reg_1, Read_Reg_2, Write_Reg, Wri
 		file = $fopen ("regFile.txt","w");
 		for ( i = 0; i < 32 ; i = i+1)
 		begin
-			$fwrite(file,"%d,%d\n",i,Reg_File[i]);
+			$fwrite(file,"%0d,%0d\n",i,Reg_File[i]);
 		end
 		$fclose(file); $display("END from regFile ya RAY2");
 	end
