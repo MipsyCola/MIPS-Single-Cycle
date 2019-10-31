@@ -27,7 +27,6 @@ module DATA_MEMORY(Read_Data,MemWrite,MemRead,Address,Write_data,clock,eof);
 			write_data_storage[Address] <= Write_data;    
 		end
 	end
-
 	always @ (posedge MemRead)
 	begin
 		Read_Data <= write_data_storage[Address];

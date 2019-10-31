@@ -7,7 +7,7 @@ module Reg_Dst_MUX(Write_Register,in0,in1,RegDst);
 	begin
 		ra = 5'd31;
 	end
-	always@(*)
+	always@(in0,in1,RegDst)
 	begin 
 		if (RegDst == 1)
 		begin
@@ -25,12 +25,12 @@ module Reg_Dst_MUX(Write_Register,in0,in1,RegDst);
 		end
 	end
 endmodule
-module MUX_32_1(output_mux,input0,input1,selector);
+module MUX_32_1(output_mux,input_0,input1,selector);
 	output reg  [31:0] output_mux;
-	input  wire [31:0] input0;
+	input  wire [31:0] input_0;
 	input  wire [31:0] input1;
 	input  wire selector;
-	always@(*)
+	always@(input_0,input1,selector)
 	begin 
 		if (selector == 1)
 		begin
@@ -38,20 +38,20 @@ module MUX_32_1(output_mux,input0,input1,selector);
 		end
 		else
 		begin
-			output_mux <= input0;
+			output_mux <= input_0;
 		end
 	
 	end
 endmodule
-module MUX_32_2(output_mux,input0,input1,input2,selector);
+module MUX_32_2(output_mux,input_0,input1,input2,selector);
 
-	input  wire [31:0] input0;
+	input  wire [31:0] input_0;
 	input  wire [31:0] input1;
 	input  wire [31:0] input2;
 	input wire  [1:0] selector;
 	output reg  [31:0] output_mux;
 	
-	always@(*)
+	always@(input_0,input1,selector)
 	begin 
 		if (selector == 1)
 		begin
@@ -65,7 +65,7 @@ module MUX_32_2(output_mux,input0,input1,input2,selector);
 
 		else 
 		begin
-			output_mux <= input0;
+			output_mux <= input_0;
 		end
 end
 

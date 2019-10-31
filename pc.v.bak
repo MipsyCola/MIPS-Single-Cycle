@@ -4,7 +4,6 @@ module PC(PC_plus, PC, clock, eof);
 	input wire [31:0] PC;
 	output reg[31:0] PC_plus;
 	output reg eof;
-	
 	initial 
 	begin
 		PC_plus = 32'd0;

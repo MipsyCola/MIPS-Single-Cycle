@@ -1,7 +1,7 @@
 module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Mem_Write,ALU_Src,Reg_Write,Jump,Inst_31_26);
 	output reg  Ori,Branch,Branch_Not_Equal,Mem_Read,Mem_Write,ALU_Src,Reg_Write,Jump;
 	output reg  [1:0] Mem_to_Reg,Reg_Dst;
-	output reg  [3:0] ALU_Op;
+	output reg  [2:0] ALU_Op;
 	input  wire [5:0] Inst_31_26;
 
 	initial
@@ -34,7 +34,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b0;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b0010;
+				ALU_Op<=3'b010;
 				Ori <= 1'b0;
 			end
 			6'd2:	//jump
@@ -48,7 +48,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'bx;
 				Reg_Write<=1'b0;
-				ALU_Op<=4'b0xxx;
+				ALU_Op<=3'bxxx;
 				Ori <= 1'b0;
 			end	
 			6'd3:	//jal
@@ -62,7 +62,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'bx;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b0xxx;
+				ALU_Op<=3'bxxx;
 				Ori <= 1'b0;
 			end
 			6'd4:	//beq
@@ -76,7 +76,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b0;
 				Reg_Write<=1'b0;
-				ALU_Op<=4'b0001;
+				ALU_Op<=3'b001;
 				Ori <= 1'b0;
 			end
 			6'd5:	//bne
@@ -90,7 +90,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b0;
 				Reg_Write<=1'b0;
-				ALU_Op<=4'b0001;
+				ALU_Op<=3'b001;
 				Ori <= 1'b0;
 			end
 			6'd8: 	//addi
@@ -104,7 +104,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b1;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b0000;
+				ALU_Op<=3'b000;
 				Ori <= 1'b0;
 			end
 			6'd10:	//slti
@@ -118,7 +118,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b1;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b0101;
+				ALU_Op<=3'b101;
 				Ori <= 1'b0;
 			end
 			6'd11:	//sgti
@@ -132,7 +132,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b1;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b1000;
+				ALU_Op<=3'b010;
 				Ori <= 1'b0;
 			end
 			6'd12:	//andi
@@ -146,7 +146,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b1;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b0011;
+				ALU_Op<=3'b011;
 				Ori <= 1'b0;
 			end
 			6'd13:	//ori
@@ -160,7 +160,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b1;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b0100;
+				ALU_Op<=3'b100;
 				Ori <= 1'b1;
 			end		
 			6'd14:	//xori
@@ -174,7 +174,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b1;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b0110;
+				ALU_Op<=3'b110;
 				Ori <= 1'b0;
 			end
 			6'd15:	//lui
@@ -188,7 +188,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b1;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b0111;
+				ALU_Op<=3'b111;
 				Ori <= 1'b0;
 			end
 			6'd32:	//lb
@@ -202,7 +202,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b1;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b0111;
+				ALU_Op<=3'b111;
 				Ori <= 1'b0;
 			end
 			6'd33:	//lh
@@ -216,7 +216,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b1;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b0111;
+				ALU_Op<=3'b111;
 				Ori <= 1'b0;
 			end
 			6'd35:     //lw
@@ -230,7 +230,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b1;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b0000;
+				ALU_Op<=3'b000;
 				Ori <= 1'b0;
 			end
 			6'd40:	//sb
@@ -244,7 +244,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b1;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b0111;
+				ALU_Op<=3'b111;
 				Ori <= 1'b0;
 			end
 			6'd41:	//sh
@@ -258,7 +258,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b0;
 				ALU_Src<=1'b1;
 				Reg_Write<=1'b1;
-				ALU_Op<=4'b0111;
+				ALU_Op<=3'b111;
 				Ori <= 1'b0;
 			end
 			6'd43:  //sw
@@ -272,7 +272,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				Mem_Write<=1'b1;
 				ALU_Src<=1'b1;
 				Reg_Write<=1'b0;
-				ALU_Op<=4'b0000;
+				ALU_Op<=3'b000;
 				Ori <= 1'b0;
 			end	
 			default : 
@@ -286,7 +286,7 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				ALU_Src <= 0;
 				Mem_to_Reg <= 0;
 				Reg_Dst <=0;
-				ALU_Op<=4'b0000;
+				ALU_Op<=3'b000;
 				Ori <= 1'b0;
 			end		
 		endcase

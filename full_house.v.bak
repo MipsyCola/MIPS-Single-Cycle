@@ -18,7 +18,7 @@ module MIPS();
 wire Clock, eof, Ori, Branch, Branch_Not_Equal, Mem_Read, Mem_Write, ALU_Src, Reg_Write, Jump, JR_Signal, Zero;
 wire beq_and_output, bne_and_output, bne_not_output, branch_or_output, jr_not_output;
 wire[1:0] Reg_Dstn, Mem_to_Reg;
-wire[3:0] ALU_Op;
+wire[2:0] ALU_Op;
 wire[3:0] ALUctrl;
 wire[4:0] reg_dest_mux_output;
 wire[31:0] pcIn, pcOut, Read_Data, Read_Data_1, Read_Data_2, instruction, Sign_Ext_Output, Alu_Result;

@@ -37,50 +37,50 @@ module ALU(alu_result, zero, inst_10_6, read_data_1, alu_mux_output, alu_ctrl);
 			
 			AND: 
 			begin
-				alu_result <=  read_data_1 &  alu_mux_output ;
-				zero = (read_data_1 &  alu_mux_output) ? 0: 1;
+			alu_result <=  read_data_1 &  alu_mux_output ;
+			zero = (read_data_1 &  alu_mux_output) ? 0: 1;
 			end
 			
 			OR :
 			begin
-				alu_result <=  read_data_1 |  alu_mux_output ;
-				zero = ( read_data_1 |  alu_mux_output )? 0: 1;
+			alu_result <=  read_data_1 |  alu_mux_output ;
+			zero = ( read_data_1 |  alu_mux_output )? 0: 1;
 			end
 			
 			ADD:
 			begin
-				alu_result <=  read_data_1 +  alu_mux_output ;
-				zero <= (read_data_1 +  alu_mux_output )? 1'b0: 1'b1;
+			alu_result <=  read_data_1 +  alu_mux_output ;
+			zero <= (read_data_1 +  alu_mux_output )? 1'b0: 1'b1;
 			end
 			
 			SUB: 
 			begin
-				alu_result <=  read_data_1 -  alu_mux_output ;
-				zero <= (read_data_1 -  alu_mux_output)? 1'b0: 1'b1;
+			alu_result <=  read_data_1 -  alu_mux_output ;
+			zero <= (read_data_1 -  alu_mux_output)? 1'b0: 1'b1;
 			end
 			
 			SLT: 
 			begin
-				alu_result <=  (read_data_1 < alu_mux_output);
-				zero <= (read_data_1 != alu_mux_output)? 1'b0: 1'b1;
+			alu_result <=  (read_data_1 < alu_mux_output);
+			zero <= (read_data_1 != alu_mux_output)? 1'b0: 1'b1;
 			end
 
 			SGT: 
 			begin
-				alu_result <=  (read_data_1 > alu_mux_output);
-				zero <= (read_data_1 != alu_mux_output)? 1'b0: 1'b1;
+			alu_result <=  (read_data_1 > alu_mux_output);
+			zero <= (read_data_1 != alu_mux_output)? 1'b0: 1'b1;
 			end
 			
 			NOR: 
 			begin
-				alu_result <= ~(read_data_1 | alu_mux_output);
-				zero <= (~(read_data_1 | alu_mux_output))? 1'b0: 1'b1;
+			alu_result <= ~(read_data_1 | alu_mux_output);
+			zero <= (~(read_data_1 | alu_mux_output))? 1'b0: 1'b1;
 			end
 			
 			XOR:
 			begin
-				alu_result <=   read_data_1 ^ alu_mux_output ;
-				zero <= (read_data_1 ^ alu_mux_output )? 1'b0: 1'b1;
+			alu_result <=   read_data_1 ^ alu_mux_output ;
+			zero <= (read_data_1 ^ alu_mux_output )? 1'b0: 1'b1;
 			end
 			
 			SLL:
