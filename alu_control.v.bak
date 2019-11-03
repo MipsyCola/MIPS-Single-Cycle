@@ -5,7 +5,7 @@ module ALU_CONTROL(alu_ctrl, JR_Signal, alu_op, inst_5_0);
 	input wire[3:0] alu_op; 	//coming from control unit
 	input wire[5:0] inst_5_0;  	//funct field in instr
 
-	always @(*)  	//to make sure when any input change;
+	always @(alu_op or inst_5_0)  	//to make sure when any input change;
 	begin                         	//operations are executed from begining;
 		if(alu_op==4'b0000)	//sw or lw --> add or addi
 		begin

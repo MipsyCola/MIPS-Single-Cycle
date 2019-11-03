@@ -30,7 +30,7 @@ module REG_FILE(Read_Data_1, Read_Data_2, Read_Reg_1, Read_Reg_2, Write_Reg, Wri
 		$display("END from regFile ya RAY2");
 	end
 
-	always @(Read_Reg_1, Read_Reg_2)
+	always @(*)
 	begin
 		Read_Data_1 = Reg_File[Read_Reg_1];
 		Read_Data_2 = Reg_File[Read_Reg_2];

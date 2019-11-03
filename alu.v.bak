@@ -31,7 +31,7 @@ module ALU(alu_result, zero, inst_10_6, read_data_1, alu_mux_output, alu_ctrl);
 		zero =  0 ; 
 	end	
 	
-	always @(*)
+	always @(read_data_1, alu_mux_output, alu_ctrl)
 	begin 
 		case(alu_ctrl)
 			
