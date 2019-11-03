@@ -17,7 +17,7 @@ module DATA_MEMORY(Read_Data,MemWrite,MemRead,Address,Write_data,clock,eof);
 			begin $fwrite(file,"%0d,%0d\n",i,write_data_storage[i]); 	end
 		end
 		$fclose(file); $display("END from data memory ya RAY2");
-		$stop();
+		$finish();
 	end
 	
 	always @ (negedge clock)
