@@ -1,5 +1,5 @@
 C:/MIPS/shift_left.v {1 {vlog -work work -stats=none C:/MIPS/shift_left.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module Shift_Left_26
 -- Compiling module Shift_Left_32
 
@@ -8,35 +8,35 @@ Top level modules:
 	Shift_Left_32
 
 } {} {}} C:/MIPS/sign_extend.v {1 {vlog -work work -stats=none C:/MIPS/sign_extend.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module SIGN_EXTEND
 
 Top level modules:
 	SIGN_EXTEND
 
 } {} {}} C:/MIPS/jump_address.v {1 {vlog -work work -stats=none C:/MIPS/jump_address.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module JUMP_ADDRESS
 
 Top level modules:
 	JUMP_ADDRESS
 
 } {} {}} C:/MIPS/alu_control.v {1 {vlog -work work -stats=none C:/MIPS/alu_control.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module ALU_CONTROL
 
 Top level modules:
 	ALU_CONTROL
 
 } {} {}} C:/MIPS/branch_adder.v {1 {vlog -work work -stats=none C:/MIPS/branch_adder.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module BR_ADDER
 
 Top level modules:
 	BR_ADDER
 
 } {} {}} C:/MIPS/full_house.v {1 {vlog -work work -stats=none C:/MIPS/full_house.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module PC
 -- Compiling module PC_ADDER
 -- Compiling module INS_MEMORY
@@ -58,14 +58,14 @@ Top level modules:
 	MIPS
 
 } {} {}} C:/MIPS/control.v {1 {vlog -work work -stats=none C:/MIPS/control.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module CONTROL
 
 Top level modules:
 	CONTROL
 
 } {} {}} C:/MIPS/data_memory.v {1 {vlog -work work -stats=none C:/MIPS/data_memory.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module DATA_MEMORY
 
 Top level modules:
@@ -79,7 +79,7 @@ Top level modules:
 	ALU
 
 } {} {}} C:/MIPS/mux.v {1 {vlog -work work -stats=none C:/MIPS/mux.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module Reg_Dst_MUX
 -- Compiling module MUX_32_1
 -- Compiling module MUX_32_2
@@ -90,28 +90,45 @@ Top level modules:
 	MUX_32_2
 
 } {} {}} C:/MIPS/pc_adder.v {1 {vlog -work work -stats=none C:/MIPS/pc_adder.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module PC_ADDER
 
 Top level modules:
 	PC_ADDER
 
+} {} {}} C:/MIPS/ALU.v {1 {vlog -work work -stats=none C:/MIPS/ALU.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
 } {} {}} C:/MIPS/pc.v {1 {vlog -work work -stats=none C:/MIPS/pc.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module PC
 
 Top level modules:
 	PC
 
 } {} {}} C:/MIPS/clock.v {1 {vlog -work work -stats=none C:/MIPS/clock.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module CLOCK
 
 Top level modules:
 	CLOCK
 
+<<<<<<< HEAD
+=======
+} {} {}} C:/MIPS/reg_file.v {1 {vlog -work work -stats=none C:/MIPS/reg_file.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module REG_FILE
+
+Top level modules:
+	REG_FILE
+
+>>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
 } {} {}} C:/MIPS/inst_memory.v {1 {vlog -work work -stats=none C:/MIPS/inst_memory.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module INS_MEMORY
 
 Top level modules:
