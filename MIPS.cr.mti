@@ -110,13 +110,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 2
 Top level modules:
 	CLOCK
 
-} {} {}} C:/MIPS/reg_file.v {1 {vlog -work work -stats=none C:/MIPS/reg_file.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
--- Compiling module REG_FILE
-
-Top level modules:
-	REG_FILE
-
 } {} {}} C:/MIPS/inst_memory.v {1 {vlog -work work -stats=none C:/MIPS/inst_memory.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
 -- Compiling module INS_MEMORY

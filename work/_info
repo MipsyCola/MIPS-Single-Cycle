@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/intelFPGA_pro/17.1
 vALU
-Z0 !s110 1572801201
+Z0 !s110 1572801574
 !i10b 1
 !s100 J=5PI;N2WlTUcYZjJ2eDR0
 IQ]l5ZgTSYEX4GZL0:gTE=2
@@ -23,7 +23,7 @@ Z3 OV;L;10.5c;63
 r1
 !s85 0
 31
-Z4 !s108 1572801201.000000
+Z4 !s108 1572801573.000000
 Z5 !s107 clock.v|mux.v|jump_address.v|sign_extend.v|branch_adder.v|data_memory.v|alu.v|alu_control.v|control.v|reg_file.v|inst_memory.v|pc_adder.v|pc.v|C:/MIPS/full_house.v|
 Z6 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/full_house.v|
 !i113 1
@@ -155,7 +155,7 @@ R3
 r1
 !s85 0
 31
-R4
+Z9 !s108 1572801574.000000
 !s107 C:/MIPS/inst_memory.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/inst_memory.v|
 !i113 1
@@ -177,7 +177,7 @@ R3
 r1
 !s85 0
 31
-R4
+R9
 !s107 C:/MIPS/jump_address.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/jump_address.v|
 !i113 1
@@ -207,7 +207,7 @@ R7
 R8
 n@m@i@p@s
 vMUX_32_1
-Z9 !s110 1572801202
+R0
 !i10b 1
 !s100 0^fMC5PUEIE2VC5d<ZcUN0
 IYKd_bgS06id8C40Tc7:[?0
@@ -221,7 +221,7 @@ R3
 r1
 !s85 0
 31
-R4
+R9
 Z13 !s107 C:/MIPS/mux.v|
 Z14 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/mux.v|
 !i113 1
@@ -229,7 +229,7 @@ R7
 R8
 n@m@u@x_32_1
 vMUX_32_2
-R9
+R0
 !i10b 1
 !s100 fQ]HR9[F5nJW4VY]6FjnY1
 I==`m>_^QdRil8IBo50NL^2
@@ -243,7 +243,7 @@ R3
 r1
 !s85 0
 31
-R4
+R9
 R13
 R14
 !i113 1
@@ -251,7 +251,7 @@ R7
 R8
 n@m@u@x_32_2
 vPC
-R9
+R0
 !i10b 1
 !s100 4fRQkL2MLBjfW_Q8c]AiR2
 If`iM1QSSY9bbL[^f3oH9U2
@@ -265,7 +265,7 @@ R3
 r1
 !s85 0
 31
-Z15 !s108 1572801202.000000
+R9
 !s107 C:/MIPS/pc.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/pc.v|
 !i113 1
@@ -273,7 +273,7 @@ R7
 R8
 n@p@c
 vPC_ADDER
-R9
+R0
 !i10b 1
 !s100 gbUYEOgEDM4^@Tb@;Ljf=3
 IJ:Nz9P=Q^CXHa46?XdfVk0
@@ -287,7 +287,7 @@ R3
 r1
 !s85 0
 31
-R15
+R9
 !s107 C:/MIPS/pc_adder.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/pc_adder.v|
 !i113 1
@@ -295,7 +295,7 @@ R7
 R8
 n@p@c_@a@d@d@e@r
 vReg_Dst_MUX
-R9
+R0
 !i10b 1
 !s100 JndTZU82RhChTYn@mTPFT1
 Ik`4>O`]jPMBT94OGbee0B3
@@ -309,7 +309,7 @@ R3
 r1
 !s85 0
 31
-R4
+R9
 R13
 R14
 !i113 1
@@ -317,13 +317,13 @@ R7
 R8
 n@reg_@dst_@m@u@x
 vREG_FILE
-R9
+R0
 !i10b 1
-!s100 58?Y:l6[<05;4nV<Cd:F@2
-ICKz18X@4JSR8JH@Ji@dVI2
+!s100 aTTQ>3F8iI?lbMThCCCE]0
+I?dh:CicJm3a<]:42KE@dR0
 R1
 R2
-w1572801189
+w1572801469
 8C:/MIPS/reg_file.v
 FC:/MIPS/reg_file.v
 L0 1
@@ -331,7 +331,7 @@ R3
 r1
 !s85 0
 31
-R15
+R9
 !s107 C:/MIPS/reg_file.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/reg_file.v|
 !i113 1
@@ -339,51 +339,51 @@ R7
 R8
 n@r@e@g_@f@i@l@e
 vShift_Left_26
-R9
+R0
 !i10b 1
 !s100 YZg8he9Qfln]Kd07oH^392
 IVdl;Uo[Pf1@gg97^3ToY[0
 R1
 R2
-Z16 w1572796984
-Z17 8C:/MIPS/shift_left.v
-Z18 FC:/MIPS/shift_left.v
+Z15 w1572796984
+Z16 8C:/MIPS/shift_left.v
+Z17 FC:/MIPS/shift_left.v
 L0 1
 R3
 r1
 !s85 0
 31
-R15
-Z19 !s107 C:/MIPS/shift_left.v|
-Z20 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/shift_left.v|
+R9
+Z18 !s107 C:/MIPS/shift_left.v|
+Z19 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/shift_left.v|
 !i113 1
 R7
 R8
 n@shift_@left_26
 vShift_Left_32
-R9
+R0
 !i10b 1
 !s100 aN[Fif>>JKEB68:djNCX22
 Imlzz:k8EFJVb8S5Sj9N[C0
 R1
 R2
+R15
 R16
 R17
-R18
 L0 11
 R3
 r1
 !s85 0
 31
-R15
+R9
+R18
 R19
-R20
 !i113 1
 R7
 R8
 n@shift_@left_32
 vSIGN_EXTEND
-R9
+R0
 !i10b 1
 !s100 SJYA0M1A`i0<>3o<c7kO[3
 If54o5iRScCUfo1zBVjo8o3
@@ -397,7 +397,7 @@ R3
 r1
 !s85 0
 31
-R15
+R9
 !s107 C:/MIPS/sign_extend.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/sign_extend.v|
 !i113 1
