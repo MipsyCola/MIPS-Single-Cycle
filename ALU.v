@@ -55,7 +55,7 @@ module ALU(alu_result, zero, inst_10_6, read_data_1, alu_mux_output, alu_ctrl);
 			
 			SUB: 
 			begin
-				alu_result <=  read_data_1 -  alu_mux_output ;
+				alu_result <=  (read_data_1 -  alu_mux_output) ;
 				zero <= (read_data_1 -  alu_mux_output)? 1'b0: 1'b1;
 			end
 			

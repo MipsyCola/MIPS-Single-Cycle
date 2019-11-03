@@ -28,8 +28,9 @@ module DATA_MEMORY(Read_Data,MemWrite,MemRead,Address,Write_data,clock,eof);
 		end
 	end
 
-	always @ (posedge MemRead)
+	always @ (MemRead, Address)
 	begin
-		Read_Data <= write_data_storage[Address];
+		if(MemRead)
+		 Read_Data <= write_data_storage[Address];
 	end
 endmodule

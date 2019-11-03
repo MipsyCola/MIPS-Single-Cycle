@@ -1,11 +1,4 @@
-C:/MIPS/sign_extend.v {1 {vlog -work work -stats=none C:/MIPS/sign_extend.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
--- Compiling module SIGN_EXTEND
-
-Top level modules:
-	SIGN_EXTEND
-
-} {} {}} C:/MIPS/shift_left.v {1 {vlog -work work -stats=none C:/MIPS/shift_left.v
+C:/MIPS/shift_left.v {1 {vlog -work work -stats=none C:/MIPS/shift_left.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
 -- Compiling module Shift_Left_26
 -- Compiling module Shift_Left_32
@@ -13,6 +6,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 2
 Top level modules:
 	Shift_Left_26
 	Shift_Left_32
+
+} {} {}} C:/MIPS/sign_extend.v {1 {vlog -work work -stats=none C:/MIPS/sign_extend.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+-- Compiling module SIGN_EXTEND
+
+Top level modules:
+	SIGN_EXTEND
 
 } {} {}} C:/MIPS/jump_address.v {1 {vlog -work work -stats=none C:/MIPS/jump_address.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
@@ -64,6 +64,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 2
 Top level modules:
 	CONTROL
 
+} {} {}} C:/MIPS/data_memory.v {1 {vlog -work work -stats=none C:/MIPS/data_memory.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
+-- Compiling module DATA_MEMORY
+
+Top level modules:
+	DATA_MEMORY
+
 } {} {}} C:/MIPS/alu.v {1 {vlog -work work -stats=none C:/MIPS/alu.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
 -- Compiling module ALU
@@ -81,13 +88,6 @@ Top level modules:
 	Reg_Dst_MUX
 	MUX_32_1
 	MUX_32_2
-
-} {} {}} C:/MIPS/data_memory.v {1 {vlog -work work -stats=none C:/MIPS/data_memory.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
--- Compiling module DATA_MEMORY
-
-Top level modules:
-	DATA_MEMORY
 
 } {} {}} C:/MIPS/pc_adder.v {1 {vlog -work work -stats=none C:/MIPS/pc_adder.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017

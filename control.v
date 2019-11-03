@@ -233,6 +233,20 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				ALU_Op<=4'b0000;
 				Ori <= 1'b0;
 			end
+			6'd43:  //sw
+			begin
+				Reg_Dst<=2'bxx;
+				Branch<=1'b0;
+				Branch_Not_Equal<=1'b0;
+				Jump<=1'b0;
+				Mem_Read<=1'b0;
+				Mem_to_Reg<=2'bxx;
+				Mem_Write<=1'b1;
+				ALU_Src<=1'b1;
+				Reg_Write<=1'b0;
+				ALU_Op<=4'b0000;
+				Ori <= 1'b0;
+			end	
 			6'd40:	//sb
 			begin
 				Reg_Dst<=2'b00;
@@ -261,20 +275,6 @@ module CONTROL(Ori,Reg_Dst,Branch,Branch_Not_Equal,Mem_Read,Mem_to_Reg,ALU_Op,Me
 				ALU_Op<=4'b0111;
 				Ori <= 1'b0;
 			end
-			6'd43:  //sw
-			begin
-				Reg_Dst<=2'bxx;
-				Branch<=1'b0;
-				Branch_Not_Equal<=1'b0;
-				Jump<=1'b0;
-				Mem_Read<=1'b0;
-				Mem_to_Reg<=2'bxx;
-				Mem_Write<=1'b1;
-				ALU_Src<=1'b1;
-				Reg_Write<=1'b0;
-				ALU_Op<=4'b0000;
-				Ori <= 1'b0;
-			end	
 			default : 
 			begin
 				Branch <= 0;

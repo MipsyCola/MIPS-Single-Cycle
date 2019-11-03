@@ -6,6 +6,7 @@ always @(Inst_25_0)
 begin
 Shifted_Output <= (Inst_25_0 << 2);
 end
+
 endmodule
 
 module Shift_Left_32(Shifted_Output, signextend);
@@ -16,4 +17,5 @@ always @(signextend)
 begin
 Shifted_Output <= (signextend << 2);
 end
+
 endmodule 
