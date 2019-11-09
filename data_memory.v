@@ -8,15 +8,15 @@ module DATA_MEMORY(Read_Data,MemWrite,MemRead,Address,Write_data,clock,eof);
 	integer file , size , i , _;
 	integer mem_file ;
 	
-	always @(posedge eof)
+	initial
 	begin
 		file = $fopen ("dataMemory.txt","w");
-		for ( i = 0; i < 8192 ; i = i+1)
-		begin
-			if ( write_data_storage[i] !== 'hxxxx ) // don't store the garbage values in memory 
-			begin $fwrite(file,"%0d,%0d\n",i,write_data_storage[i]); 	end
-		end
-		$fclose(file); $display("END from data memory ya RAY2");
+		$fwrite(file,""); 
+		$fclose(file); 
+	end
+	
+	always @(posedge eof)
+	begin
 		$finish();
 	end
 	
@@ -26,6 +26,14 @@ module DATA_MEMORY(Read_Data,MemWrite,MemRead,Address,Write_data,clock,eof);
     		begin
 			write_data_storage[Address] <= Write_data;    
 		end
+		file = $fopen ("dataMemory.txt","a");
+		for ( i = 0; i < 8192 ; i = i+1)
+		begin
+			if ( write_data_storage[i] !== 'hxxxx ) // don't store the garbage values in memory 
+			begin $fwrite(file,"%0d,%0d ",i,write_data_storage[i]); 	end
+		end
+		$fwrite(file,"\n");
+		$fclose(file); 
 	end
 
 	always @ (*)

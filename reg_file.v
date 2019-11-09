@@ -18,18 +18,11 @@ module REG_FILE(Read_Data_1, Read_Data_2, Read_Reg_1, Read_Reg_2, Write_Reg, Wri
 		else
 		Reg_File[j]  <= 32'h00000000;
 		end
-	end
-	always @(posedge eof)
-	begin
 		file = $fopen ("regFile.txt","w");
-		for ( i = 0; i < 32 ; i = i+1)
-		begin
-			$fwrite(file,"%0d,%0d\n",i,Reg_File[i]);
-		end
+		$fwrite(file,""); 
 		$fclose(file); 
-		$display("END from regFile ya RAY2");
 	end
-
+	
 	always @(*)
 	begin
 		Read_Data_1 = Reg_File[Read_Reg_1];
@@ -42,6 +35,14 @@ module REG_FILE(Read_Data_1, Read_Data_2, Read_Reg_1, Read_Reg_2, Write_Reg, Wri
 		begin
 			Reg_File[Write_Reg] <= Write_Data;
 		end
+		file = $fopen ("regFile.txt","a");
+		for ( i = 0; i < 32 ; i = i+1)
+		begin
+			if ( Reg_File[i] !== 'hxxxx )
+			$fwrite(file,"%0d,%0d ",i,Reg_File[i]);
+		end
+		$fwrite(file,"\n"); 
+		$fclose(file);
 	end
 
 endmodule 
