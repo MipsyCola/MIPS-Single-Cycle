@@ -85,6 +85,12 @@ and jr_and(jr_and_output, Reg_Write, jr_not_output);
 MUX_32_1 jr_mux(jr_mux_output, jump_mux_output, Read_Data_1, JR_Signal);
 /*****************************************/
 
+integer file;
+always @ (posedge Clock)
+begin
+	file = $fopen("pc.txt");
+	$fwrite(file,"0%d\n",pcOut);
+end
 /*initial
 begin
 $monitor("***************** %b *******************\n pcOut=%h, pcIn:%h, instruction: %h \n Read_Data_1:%h, Read_Data_2:%h, instruction[25:21]:%h, instruction[20:16]:%h \n beq_and_output:%h, Branch:%h, branch_or_output:%h, pc_branch_mux_output:%h\n Read_Data_1:%h, alu_src_mux_Output:%h, ALU_Src: %h, Zero:%h, Alu_Result: %h\n ***************************************",Clock,pcOut,pcIn,instruction,Read_Data_1, Read_Data_2, instruction[25:21], instruction[20:16], beq_and_output, Branch,branch_or_output,pc_branch_mux_output, Read_Data_1, alu_src_mux_Output, ALU_Src,Zero, Alu_Result);

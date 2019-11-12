@@ -18,7 +18,7 @@ module MIPS();
 wire Clock, eof, Ori, Branch, Branch_Not_Equal, Mem_Read, Mem_Write, ALU_Src, Reg_Write, Jump, JR_Signal, Zero;
 wire beq_and_output, bne_and_output, bne_not_output, branch_or_output, jr_not_output;
 wire[1:0] Reg_Dstn, Mem_to_Reg;
-wire[2:0] ALU_Op;
+wire[3:0] ALU_Op;
 wire[3:0] ALUctrl;
 wire[4:0] reg_dest_mux_output;
 wire[31:0] pcIn, pcOut, Read_Data, Read_Data_1, Read_Data_2, instruction, Sign_Ext_Output, Alu_Result;
@@ -85,6 +85,12 @@ and jr_and(jr_and_output, Reg_Write, jr_not_output);
 MUX_32_1 jr_mux(jr_mux_output, jump_mux_output, Read_Data_1, JR_Signal);
 /*****************************************/
 
+integer file;
+always @ (posedge Clock);
+begin
+	file = $fopen("pc.txt","w");
+	$fwrite(file,"0%d\n",pcOut);
+end
 /*initial
 begin
 $monitor("***************** %b *******************\n pcOut=%h, pcIn:%h, instruction: %h \n Read_Data_1:%h, Read_Data_2:%h, instruction[25:21]:%h, instruction[20:16]:%h \n beq_and_output:%h, Branch:%h, branch_or_output:%h, pc_branch_mux_output:%h\n Read_Data_1:%h, alu_src_mux_Output:%h, ALU_Src: %h, Zero:%h, Alu_Result: %h\n ***************************************",Clock,pcOut,pcIn,instruction,Read_Data_1, Read_Data_2, instruction[25:21], instruction[20:16], beq_and_output, Branch,branch_or_output,pc_branch_mux_output, Read_Data_1, alu_src_mux_Output, ALU_Src,Zero, Alu_Result);
