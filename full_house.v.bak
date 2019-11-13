@@ -86,9 +86,9 @@ MUX_32_1 jr_mux(jr_mux_output, jump_mux_output, Read_Data_1, JR_Signal);
 /*****************************************/
 
 integer file;
-always @ (posedge Clock);
+always @ (posedge Clock)
 begin
-	file = $fopen("pc.txt","w");
+	file = $fopen("pc.txt");
 	$fwrite(file,"0%d\n",pcOut);
 end
 /*initial

@@ -1,75 +1,25 @@
-# Reading C:/intelFPGA_pro/17.1/modelsim_ase/tcl/vsim/pref.tcl
-# OpenFile C:/MIPS/full_house.v
-vlog -reportprogress 300 -work work C:/MIPS/full_house.v
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
-# Start time: 19:27:29 on Nov 12,2019
-# vlog -reportprogress 300 -work work C:/MIPS/full_house.v 
-# -- Compiling module PC
-# -- Compiling module PC_ADDER
-# -- Compiling module INS_MEMORY
-# -- Compiling module REG_FILE
-# -- Compiling module CONTROL
-# -- Compiling module ALU_CONTROL
-# -- Compiling module ALU
-# -- Compiling module DATA_MEMORY
-# -- Compiling module BR_ADDER
-# -- Compiling module SIGN_EXTEND
-# -- Compiling module JUMP_ADDRESS
-# -- Compiling module Reg_Dst_MUX
-# -- Compiling module MUX_32_1
-# -- Compiling module MUX_32_2
-# -- Compiling module CLOCK
-# -- Compiling module MIPS
-# ** Error: (vlog-13069) C:/MIPS/full_house.v(91): near "=": syntax error, unexpected '='.
-# ** Error: C:/MIPS/full_house.v(91): (vlog-13205) Syntax error found in the scope following 'file'. Is there a missing '::'?
-# End time: 19:27:29 on Nov 12,2019, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 0
-vlog -reportprogress 300 -work work C:/MIPS/full_house.v
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
-# Start time: 19:27:52 on Nov 12,2019
-# vlog -reportprogress 300 -work work C:/MIPS/full_house.v 
-# -- Compiling module PC
-# -- Compiling module PC_ADDER
-# -- Compiling module INS_MEMORY
-# -- Compiling module REG_FILE
-# -- Compiling module CONTROL
-# -- Compiling module ALU_CONTROL
-# -- Compiling module ALU
-# -- Compiling module DATA_MEMORY
-# -- Compiling module BR_ADDER
-# -- Compiling module SIGN_EXTEND
-# -- Compiling module JUMP_ADDRESS
-# -- Compiling module Reg_Dst_MUX
-# -- Compiling module MUX_32_1
-# -- Compiling module MUX_32_2
-# -- Compiling module CLOCK
-# -- Compiling module MIPS
-# ** Error: (vlog-13069) C:/MIPS/full_house.v(91): near "=": syntax error, unexpected '='.
-# ** Error: C:/MIPS/full_house.v(91): (vlog-13205) Syntax error found in the scope following 'file'. Is there a missing '::'?
-# End time: 19:27:52 on Nov 12,2019, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 0
-vlog -reportprogress 300 -work work C:/MIPS/full_house.v
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5c Compiler 2017.01 Jan 23 2017
-# Start time: 19:28:11 on Nov 12,2019
-# vlog -reportprogress 300 -work work C:/MIPS/full_house.v 
-# -- Compiling module PC
-# -- Compiling module PC_ADDER
-# -- Compiling module INS_MEMORY
-# -- Compiling module REG_FILE
-# -- Compiling module CONTROL
-# -- Compiling module ALU_CONTROL
-# -- Compiling module ALU
-# -- Compiling module DATA_MEMORY
-# -- Compiling module BR_ADDER
-# -- Compiling module SIGN_EXTEND
-# -- Compiling module JUMP_ADDRESS
-# -- Compiling module Reg_Dst_MUX
-# -- Compiling module MUX_32_1
-# -- Compiling module MUX_32_2
-# -- Compiling module CLOCK
-# -- Compiling module MIPS
-# 
-# Top level modules:
-# 	MIPS
-# End time: 19:28:11 on Nov 12,2019, Elapsed time: 0:00:00
+# vsim -c -do "run -all" work.MIPS 
+# Start time: 08:39:14 on Nov 13,2019
+# Loading work.MIPS
+# Loading work.CLOCK
+# Loading work.PC
+# Loading work.PC_ADDER
+# Loading work.INS_MEMORY
+# Loading work.Reg_Dst_MUX
+# Loading work.REG_FILE
+# Loading work.CONTROL
+# Loading work.SIGN_EXTEND
+# Loading work.ALU_CONTROL
+# Loading work.ALU
+# Loading work.MUX_32_1
+# Loading work.DATA_MEMORY
+# Loading work.MUX_32_2
+# Loading work.BR_ADDER
+# Loading work.JUMP_ADDRESS
+# run -all
+# SIZE ===           6 
+# end_program will save the memory data and exit the verilog program 
+# ** Note: $finish    : data_memory.v(20)
+#    Time: 1395 ns  Iteration: 2  Instance: /MIPS/data_memory
+# End time: 08:39:14 on Nov 13,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

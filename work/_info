@@ -9,328 +9,328 @@ z2
 cModel Technology
 Z0 dC:/Modeltech_pe_edu_10.4a/examples
 <<<<<<< HEAD
-!s110 1572801574
-Z1 =======
-Z2 !s110 1572807072
+Z1 !s108 1572801574.000000
+Z2 =======
+Z3 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/shift_left.v|
 R0
 <<<<<<< HEAD
-Z3 !s108 1572801573.000000
-Z4 !s107 clock.v|mux.v|jump_address.v|sign_extend.v|branch_adder.v|data_memory.v|alu.v|alu_control.v|control.v|reg_file.v|inst_memory.v|pc_adder.v|pc.v|C:/MIPS/full_house.v|
-Z5 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/full_house.v|
+Z4 !s110 1572807072
+R2
+Z5 !s107 C:/MIPS/shift_left.v|
+R0
+<<<<<<< HEAD
 R1
-!s108 1572807072.000000
-R4
 R5
-!s101 -O0
-R0
-<<<<<<< HEAD
-Z6 !s108 1572801574.000000
-R1
-Z7 !s108 1572807073.000000
-R0
-<<<<<<< HEAD
-R6
-R1
-R7
-R0
-<<<<<<< HEAD
+R3
 R2
-R1
-R6
-R0
-<<<<<<< HEAD
-R6
-Z8 !s107 C:/MIPS/mux.v|
-Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/mux.v|
-R1
-R7
-R8
-R9
+R3
+R5
+R3
 !s101 -O0
 R0
 <<<<<<< HEAD
-R6
-R8
-R9
-R1
-R7
-R8
-R9
-!s101 -O0
-R0
-<<<<<<< HEAD
-R6
-R1
-R7
-R0
-<<<<<<< HEAD
-R6
-R1
-R7
-R0
-<<<<<<< HEAD
-R6
-R8
-R9
-R1
-R7
-R8
-R9
-!s101 -O0
-R0
-<<<<<<< HEAD
+Z6 w1572796984
+Z7 8C:/MIPS/shift_left.v
+Z8 FC:/MIPS/shift_left.v
+Z9 L0 11
 R2
-!i10b 1
-Z10 !s100 aTTQ>3F8iI?lbMThCCCE]0
-I?dh:CicJm3a<]:42KE@dR0
-Z11 VDg1SIo80bB@j0V0VzS_@n1
-Z12 dC:/MIPS
-Z13 w1572801469
+R0
+<<<<<<< HEAD
+R4
+R2
+R5
+R0
+<<<<<<< HEAD
 R1
-Z14 !s110 1572807074
-!i10b 1
-R10
-I5l`GmM]bScnnM2gU5lW1=3
-R11
-R12
-w1572803670
+R5
+R3
+R2
+R3
+R5
+R3
+!s101 -O0
+R0
 <<<<<<< HEAD
 R6
+R7
+R8
+L0 1
+R2
+R0
+<<<<<<< HEAD
+R4
+R2
+Z10 !s110 1572807074
+R0
+<<<<<<< HEAD
 R1
+R2
 !s108 1572807074.000000
 R0
 <<<<<<< HEAD
+R4
+!i10b 1
+Z11 !s100 aTTQ>3F8iI?lbMThCCCE]0
+I?dh:CicJm3a<]:42KE@dR0
+Z12 VDg1SIo80bB@j0V0VzS_@n1
+Z13 dC:/MIPS
+Z14 w1572801469
 R2
-R1
-R14
-R0
+R10
+!i10b 1
+R11
+I5l`GmM]bScnnM2gU5lW1=3
+R12
+R13
+w1572803670
 <<<<<<< HEAD
-Z15 w1572796984
-Z16 8C:/MIPS/shift_left.v
-Z17 FC:/MIPS/shift_left.v
-L0 1
 R1
-R0
-<<<<<<< HEAD
-R6
-Z18 !s107 C:/MIPS/shift_left.v|
-Z19 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/shift_left.v|
-R1
-R19
-R18
-R19
-!s101 -O0
-R0
-<<<<<<< HEAD
+Z15 !s107 C:/MIPS/mux.v|
+Z16 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/mux.v|
 R2
-R1
-R18
-R0
-<<<<<<< HEAD
+Z17 !s108 1572807073.000000
 R15
 R16
-R17
-Z20 L0 11
-R1
-R0
-<<<<<<< HEAD
-R6
-R18
-R19
-R1
-R19
-R18
-R19
 !s101 -O0
 R0
 <<<<<<< HEAD
+R1
+R2
+R17
+R0
+<<<<<<< HEAD
+R1
+R2
+R17
+R0
+<<<<<<< HEAD
+R1
+R15
+R16
+R2
+R17
+R15
+R16
+!s101 -O0
+R0
+<<<<<<< HEAD
+R1
+R15
+R16
+R2
+R17
+R15
+R16
+!s101 -O0
+R0
+<<<<<<< HEAD
+R4
 R2
 R1
-R18
 R0
 <<<<<<< HEAD
-R6
 R1
+R2
+R17
+R0
+<<<<<<< HEAD
+R1
+R2
+R17
+R0
+<<<<<<< HEAD
+Z18 !s108 1572801573.000000
+Z19 !s107 clock.v|mux.v|jump_address.v|sign_extend.v|branch_adder.v|data_memory.v|alu.v|alu_control.v|control.v|reg_file.v|inst_memory.v|pc_adder.v|pc.v|C:/MIPS/full_house.v|
+Z20 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/full_house.v|
+R2
+!s108 1572807072.000000
 R19
+R20
+!s101 -O0
+R0
+<<<<<<< HEAD
+!s110 1572801574
+R2
+R4
+R0
+>>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
+!s107 C:/MIPS/sign_extend.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/sign_extend.v|
+!s101 -O0
+!i113 1
+Z21 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+n@s@i@g@n_@e@x@t@e@n@d
 R0
 >>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
 !i10b 1
-!s100 J=5PI;N2WlTUcYZjJ2eDR0
-I^SYM>eCE`3]kEah^4[H0V2
-R11
+Z22 !s100 SJYA0M1A`i0<>3o<c7kO[3
+IJ73gk8PzFn1d6A8@hi0T:3
 R12
 R13
-Z21 8alu.v
-Z22 Falu.v
+R14
+8C:/MIPS/sign_extend.v
+FC:/MIPS/sign_extend.v
 L0 1
-OP;L;10.4a;61
+R18
 r1
 !s85 0
 31
 >>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
 !i113 1
-Z23 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
-n@a@l@u
+R21
+n@shift_@left_32
 R0
 >>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
-!s107 C:/MIPS/inst_memory.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/inst_memory.v|
-!s101 -O0
-!i113 1
-R23
-n@i@n@s_@m@e@m@o@r@y
-R0
->>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
-!s107 C:/MIPS/jump_address.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/jump_address.v|
-!s101 -O0
-!i113 1
-R23
-n@j@u@m@p_@a@d@d@r@e@s@s
+R14
+R7
+R8
+R9
+R18
+r1
+!s85 0
+31
 R0
 >>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
 !i10b 1
-Z24 !s100 0^fMC5PUEIE2VC5d<ZcUN0
-IAfIl9P3NKP>aJ60acKiVR1
-R11
+Z23 !s100 aN[Fif>>JKEB68:djNCX22
+I`8cBC?879cmbkZl<SK25V0
 R12
 R13
-8C:/MIPS/mux.v
-FC:/MIPS/mux.v
-Z25 L0 28
-R3
+>>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
+!i113 1
+R21
+n@shift_@left_26
+R0
+>>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
+R14
+R7
+R8
+L0 1
+R18
 r1
 !s85 0
 31
->>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
-!i113 1
-R23
-n@m@u@x_32_1
 R0
 >>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
-!i113 1
-R23
-n@m@u@x_32_2
-R0
+!i10b 1
+Z24 !s100 YZg8he9Qfln]Kd07oH^392
+IeS]_azBP=A2INDKobH1<B2
+R12
+R13
 >>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
-!s107 C:/MIPS/pc.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/pc.v|
+!s107 C:/MIPS/reg_file.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/reg_file.v|
 !s101 -O0
 !i113 1
-R23
-n@p@c
+R21
+n@r@e@g_@f@i@l@e
+R0
+>>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
+8C:/MIPS/reg_file.v
+FC:/MIPS/reg_file.v
+L0 1
+R18
+r1
+!s85 0
+31
+R0
+>>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
+!i113 1
+R21
+n@reg_@dst_@m@u@x
 R0
 >>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
 !s107 C:/MIPS/pc_adder.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/pc_adder.v|
 !s101 -O0
 !i113 1
-R23
+R21
 n@p@c_@a@d@d@e@r
 R0
 >>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
-!i113 1
-R23
-n@reg_@dst_@m@u@x
-R0
->>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
-8C:/MIPS/reg_file.v
-FC:/MIPS/reg_file.v
-L0 1
-R3
-r1
-!s85 0
-31
-R0
->>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
-!s107 C:/MIPS/reg_file.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/reg_file.v|
+!s107 C:/MIPS/pc.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/pc.v|
 !s101 -O0
 !i113 1
-R23
-n@r@e@g_@f@i@l@e
-R0
->>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
-!i10b 1
-Z26 !s100 YZg8he9Qfln]Kd07oH^392
-IeS]_azBP=A2INDKobH1<B2
-R11
-R12
->>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
-R13
-R16
-R17
-L0 1
-R3
-r1
-!s85 0
-31
+R21
+n@p@c
 R0
 >>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
 !i113 1
-R23
-n@shift_@left_26
-R0
->>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
-!i10b 1
-Z27 !s100 aN[Fif>>JKEB68:djNCX22
-I`8cBC?879cmbkZl<SK25V0
-R11
-R12
->>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
-R13
-R16
-R17
-R20
-R3
-r1
-!s85 0
-31
+R21
+n@m@u@x_32_2
 R0
 >>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
 !i113 1
-R23
-n@shift_@left_32
+R21
+n@m@u@x_32_1
 R0
 >>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
 !i10b 1
-Z28 !s100 SJYA0M1A`i0<>3o<c7kO[3
-IJ73gk8PzFn1d6A8@hi0T:3
-R11
+Z25 !s100 0^fMC5PUEIE2VC5d<ZcUN0
+IAfIl9P3NKP>aJ60acKiVR1
 R12
 R13
-8C:/MIPS/sign_extend.v
-FC:/MIPS/sign_extend.v
-L0 1
-R3
+R14
+8C:/MIPS/mux.v
+FC:/MIPS/mux.v
+Z26 L0 28
+R18
 r1
 !s85 0
 31
 >>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
-!s107 C:/MIPS/sign_extend.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/sign_extend.v|
+!s107 C:/MIPS/jump_address.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/jump_address.v|
 !s101 -O0
 !i113 1
-R23
-n@s@i@g@n_@e@x@t@e@n@d
+R21
+n@j@u@m@p_@a@d@d@r@e@s@s
 R0
+>>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
+!s107 C:/MIPS/inst_memory.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/inst_memory.v|
+!s101 -O0
+!i113 1
+R21
+n@i@n@s_@m@e@m@o@r@y
+R0
+>>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
+!i113 1
+R21
+n@a@l@u
+R0
+>>>>>>> 8084acdd91b76330c21b0e213dc4c2c0f9aebbfe
+!i10b 1
+!s100 J=5PI;N2WlTUcYZjJ2eDR0
+I^SYM>eCE`3]kEah^4[H0V2
+R12
+R13
+R14
+Z27 8alu.v
+Z28 Falu.v
+L0 1
+OP;L;10.4a;61
+r1
+!s85 0
+31
 vALU
-Z29 !s110 1573579691
+Z29 !s110 1573626548
 !i10b 1
 !s100 DOfTJ>A2V?2acafa?Hd>:3
 I>hh?0olnjQmd_eGKfemo13
-R11
 R12
+R13
 Z30 w1573368694
-R21
-R22
+R27
+R28
 L0 1
 Z31 OV;L;10.5c;63
 r1
 !s85 0
 31
-Z32 !s108 1573579691.000000
-R4
+Z32 !s108 1573626547.000000
+R19
 Z33 !s90 -reportprogress|300|-work|work|C:/MIPS/full_house.v|
 !i113 1
 Z34 o-work work
@@ -340,8 +340,8 @@ R29
 !i10b 1
 !s100 hbIO0mTBf9DI4nZi]cS_c2
 I_d0MkkaUA2Cj[F6nka1f;1
-R11
 R12
+R13
 R30
 8alu_control.v
 Falu_control.v
@@ -351,7 +351,7 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
@@ -362,8 +362,8 @@ R29
 !i10b 1
 !s100 9eD`c[Ldd9d`I>@X;WJJU2
 IQ?XZE?kF=zkZm:6J>RN0T1
-R11
 R12
+R13
 R30
 8branch_adder.v
 Fbranch_adder.v
@@ -373,7 +373,7 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
@@ -384,8 +384,8 @@ R29
 !i10b 1
 !s100 ]5:6A6FALQkTAQ<oJj`eW3
 I];gBbL4?GiI>QWSnLJAnB2
-R11
 R12
+R13
 R30
 8clock.v
 Fclock.v
@@ -395,7 +395,7 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
@@ -406,8 +406,8 @@ R29
 !i10b 1
 !s100 VGVV9WZUH2Zo^hfcJhPLB3
 IET;A4gWG=:<Yn4cX66_K91
-R11
 R12
+R13
 R30
 8control.v
 Fcontrol.v
@@ -417,7 +417,7 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
@@ -428,8 +428,8 @@ R29
 !i10b 1
 !s100 zOka^H^;SH7]>]8bX6I2:3
 IZ;L1YS^:jH@_gja<;jBZ>1
-R11
 R12
+R13
 R30
 8data_memory.v
 Fdata_memory.v
@@ -439,7 +439,7 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
@@ -450,8 +450,8 @@ R29
 !i10b 1
 !s100 <]=eBi?P=T1?<`8FEb[dX2
 IH_H:c`GlgiS?4IPgH4@iE0
-R11
 R12
+R13
 R30
 8inst_memory.v
 Finst_memory.v
@@ -461,7 +461,7 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
@@ -471,8 +471,8 @@ R29
 !i10b 1
 !s100 nDUVz]^Dj^:4D4<aSW^>Z1
 IQEF5hh4Eemdh`5cM>Al:50
-R11
 R12
+R13
 R30
 8jump_address.v
 Fjump_address.v
@@ -482,7 +482,7 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
@@ -490,11 +490,11 @@ R35
 vMIPS
 R29
 !i10b 1
-!s100 ao5Mh:GTDQ>]jj@GBb2Mk2
-I7HXEG;IG3dWb?GhWDBRS70
-R11
+!s100 ?HWK4?@:T7W5;`<b3l3P71
+Icb2YOB91ZcaF][odW[^KL1
 R12
-w1573579682
+R13
+w1573626539
 Z36 8C:/MIPS/full_house.v
 Z37 FC:/MIPS/full_house.v
 Z38 L0 15
@@ -503,7 +503,7 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
@@ -514,35 +514,35 @@ vMIPS1
 !i10b 1
 !s100 2ae=5UUDM@AzN]OVV>P[10
 IM>NmN4OhG09lLVcQ8=>ND1
-R11
 R12
+R13
 w1572803155
 R36
 R37
 R38
-R3
+R18
 r1
 !s85 0
 31
 !s108 1572803175.000000
-R4
-R5
+R19
+R20
 !s101 -O0
 !i113 1
-R23
+R21
 n@m@i@p@s1
 vMIPS2
 !s110 1572803267
 !i10b 1
 !s100 KJcYj<BP53TJeTfh4MS<T3
 ImeYn`OP1G_CFRaN^h7Ll]2
-R11
 R12
+R13
 w1572803245
 8C:/MIPS/synthesis.v
 FC:/MIPS/synthesis.v
 L0 780
-R3
+R18
 r1
 !s85 0
 31
@@ -551,25 +551,25 @@ r1
 !s90 -reportprogress|300|-work|work|-stats=none|C:/MIPS/synthesis.v|
 !s101 -O0
 !i113 1
-R23
+R21
 n@m@i@p@s2
 vMUX_32_1
 R29
 !i10b 1
-R24
+R25
 ImK10B5P]iFBEj@:YX_5Gn3
-R11
 R12
+R13
 R30
 Z39 8mux.v
 Z40 Fmux.v
-R25
+R26
 R31
 r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
@@ -579,8 +579,8 @@ R29
 !i10b 1
 !s100 fQ]HR9[F5nJW4VY]6FjnY1
 IU4[iTl<G;0:iE4JncXEFf3
-R11
 R12
+R13
 R30
 R39
 R40
@@ -590,18 +590,18 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
 R35
 vPC
-R29
+!s110 1573626547
 !i10b 1
 !s100 4fRQkL2MLBjfW_Q8c]AiR2
 IK`dPa8J7zce]9<Ik_bSm`2
-R11
 R12
+R13
 R30
 8pc.v
 Fpc.v
@@ -611,7 +611,7 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
@@ -621,8 +621,8 @@ R29
 !i10b 1
 !s100 gbUYEOgEDM4^@Tb@;Ljf=3
 IQcYCQ0RJHYb[MWCc9zlC<2
-R11
 R12
+R13
 R30
 8pc_adder.v
 Fpc_adder.v
@@ -632,7 +632,7 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
@@ -642,8 +642,8 @@ R29
 !i10b 1
 !s100 JndTZU82RhChTYn@mTPFT1
 Ild[R:n@JAiCj7NR?lQJFz0
-R11
 R12
+R13
 R30
 R39
 R40
@@ -653,7 +653,7 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
@@ -663,8 +663,8 @@ R29
 !i10b 1
 !s100 B6hDUEm=:mDzH_]LeHzUY1
 IB:66U;4aLSh97@RYSY[MM0
-R11
 R12
+R13
 R30
 8reg_file.v
 Freg_file.v
@@ -674,7 +674,7 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34
@@ -682,52 +682,52 @@ R35
 vShift_Left_26
 Z41 !s110 1572825107
 !i10b 1
-R26
+R24
 I:Z=P>m3`=YN92J9h_X8Gh0
-R11
 R12
+R13
 Z42 w1572807833
-R16
-R17
+R7
+R8
 L0 1
 R31
 r1
 !s85 0
 31
 Z43 !s108 1572825107.000000
-R18
-R19
+R5
+R3
 !i113 1
 Z44 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R35
 vShift_Left_32
 R41
 !i10b 1
-R27
+R23
 IW=n`PYKSjz:dn@HHYB_d?1
-R11
 R12
+R13
 R42
-R16
-R17
-R20
+R7
+R8
+R9
 R31
 r1
 !s85 0
 31
 R43
-R18
-R19
+R5
+R3
 !i113 1
 R44
 R35
 vSIGN_EXTEND
 R29
 !i10b 1
-R28
+R22
 I_:gfB2LTO@B`d6MgCSW342
-R11
 R12
+R13
 R30
 8sign_extend.v
 Fsign_extend.v
@@ -737,7 +737,7 @@ r1
 !s85 0
 31
 R32
-R4
+R19
 R33
 !i113 1
 R34

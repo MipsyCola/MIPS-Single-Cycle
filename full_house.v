@@ -89,7 +89,7 @@ integer file;
 always @ (posedge Clock)
 begin
 	file = $fopen("pc.txt");
-	$fwrite(file,"0%d\n",pcOut);
+	$fwrite(file,"%0d\n",pcOut);
 end
 /*initial
 begin
